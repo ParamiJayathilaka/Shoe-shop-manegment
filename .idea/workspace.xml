@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f8e746f5-9b6d-4752-877a-57f10333b8b6" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2fVaeXeXoALr05R8z7T3TV4YnS9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Spring final project\assest\image" />
+      <recent name="E:\Spring final project\assest" />
+      <recent name="E:\Spring final project\assest\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Spring final project\pages" />
+      <recent name="E:\Spring final project\assest\boostrap\js" />
+      <recent name="E:\Spring final project\assest" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8e746f5-9b6d-4752-877a-57f10333b8b6" name="Default Changelist" comment="" />
+      <created>1713888796659</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713888796659</updated>
+      <workItem from="1713888798785" duration="2418000" />
+      <workItem from="1713966320577" duration="22425000" />
+      <workItem from="1714114292578" duration="8520000" />
+      <workItem from="1714214905182" duration="5048000" />
+      <workItem from="1714275223807" duration="5158000" />
+      <workItem from="1714365232094" duration="3448000" />
+      <workItem from="1714407963418" duration="1828000" />
+      <workItem from="1714446000868" duration="140000" />
+      <workItem from="1714451007290" duration="616000" />
+      <workItem from="1714580232115" duration="2269000" />
+      <workItem from="1714619970641" duration="931000" />
+      <workItem from="1714664499412" duration="9752000" />
+      <workItem from="1714839508144" duration="585000" />
+      <workItem from="1714910059702" duration="138000" />
+      <workItem from="1715261264956" duration="2000" />
+      <workItem from="1715536661898" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

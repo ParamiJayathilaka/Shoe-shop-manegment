@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg posNavi position-relative rounded-bottom">
+        <div class="container-fluid">
+
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler" data-bs-target="#navbarSupportedContent"
+                    data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" id="homeBtn">
+                        <a aria-current="page" class="nav-link active" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item" id="customerBtn">
+                        <a class="nav-link" href="customer.html">Customer </a>
+                    </li>
+                    <li class="nav-item" id="itemBtn">
+                        <a class="nav-link" href="Inventory.html">Items</a>
+                    </li>
+                    <li class="nav-item" id="orderBtn">
+                        <a class="nav-link" href="orders.html">Orders</a>
+                    </li>
+                    <li class="nav-item" id="orderDetailsBtn">
+                        <a class="nav-link" href="orderDetails.html">Order Details</a>
+                    </li>
+
+                </ul>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-primary btn-m" type="button"><i class="fa-solid fa-user-plus"></i>
+                        Sign Up
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button"><i
+                            class="fa-solid fa-right-from-bracket"></i> Log Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</head>
+<body>
+<main class="container-fluid" id="CustomerSection" style="background-color: #acb3b3">
+    <!-- Customer Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2  id="H1-3" style="font-family: 'Arial Rounded MT Bold',serif " class="text-primary"><i class="bi bi-people" ></i> Item
+            </h2>
+        </div>
+    </div>
+    <!-- Customer Header End -->
+
+    <!-- Customer Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #979393">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H6" style="color: #ece9e9">Home > Item</h6>
+            <hr>
+        </div>
+        <!-- Customer Header Section End -->
+
+
+        <section>
+
+            <!-- Customer Details Section Start -->
+            <div class="row justify-content-around " style="height: auto"></div>
+            <section>
+                <!-- Customer Details Search Section Start -->
+                <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 sectionBorder justify-content-lg-start"
+                     style="background-color: #9a4242;height: max-content ">
+                    <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Item</h4>
+                </div>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="searchItemId" style="color: #ece9e9">Search Item :</label>
+                    <!--                    class="form-control "-->
+                    <input  id="searchItemId" placeholder="Input Name/NIC/Tp Here" type="search">
+                </div>
+
+                <div class="row g-3">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemCode">Supplier code :</label>
+                            <input class="form-control" id="txtItemCode" type="text" name="id">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemName">Supplier name  :</label>
+                            <input class="form-control" id="txtItemName" type="text" name="name">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemPicture">Category :</label>
+                            <input class="form-control" id="txtItemPicture" type="text" name="gender">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemCategory">Building no :</label>
+                            <input class="form-control" id="txtItemCategory" type="text" name="date">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemSize">Lane  :</label>
+                            <input class="form-control" id="txtItemSize" type="text" name="level">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemSupplierCode">City :</label>
+                            <input class="form-control" id="txtItemSupplierCode" type="text" name="points">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemSupplierName">State :</label>
+                            <input class="form-control" id="txtItemSupplierName" type="text" name="dateOfBirth">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemUnitPriceSale">Postal Code :</label>
+                            <input class="form-control" id="txtItemUnitPriceSale" type="text" name="buildingNo">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemUnitPriceBuy">Origin Country :</label>
+                            <input class="form-control" id="txtItemUnitPriceBuy" type="text" name="lane">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemExpectedProfit">Mobile Number :</label>
+                            <input class="form-control" id="txtItemExpectedProfit" type="text" name="City">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemProfitMargin">Landline Number :</label>
+                            <input class="form-control" id="txtItemProfitMargin" type="text" name="State">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtItemStatus">Email :</label>
+                            <input class="form-control" id="txtItemStatus" type="text" name="postalCode">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+
+            <!--        &lt;!&ndash; Customer Details Search Section End &ndash;&gt;-->
+
+            <!--        &lt;!&ndash; Customer Details Search Section Start &ndash;&gt;-->
+
+            <!--        &lt;!&ndash; Customer Details Search Section End &ndash;&gt;-->
+
+            <!--    </div>-->
+
+
+        </section>
+
+
+        <div class="m-4">
+            <button class="btn btn-success mt-2 m-2" id="btnSaveCustomer" type="button"> Save
+            </button>
+
+            <button class="btn btn-warning mt-2 m-2" id="btnUpdateCustomer" type="button">Update
+            </button>
+
+            <button class="btn btn-danger mt-2 m-2" id="btnDeleteCustomer" type="button">Delete
+            </button>
+
+            <button class="btn bg-light mt-2 m-2" id="btnGetAllCustomer" type="button">Get All
+            </button>
+
+        </div>
+        <!-- Customer Details Section End -->
+
+        <!-- View Customer Details Table Start -->
+        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
+            <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">
+                <div class="customerTableDiv overflow-auto" style="height: 270px;">
+                    <table class="table table-success table-striped table-bordered table-hover">
+                        <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                        <tr>
+                            <th>Supplier code</th>
+                            <th>Supplier name </th>
+                            <th>Category</th>
+                            <th>Building no</th>
+                            <th>Lane</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Postal Code</th>
+                            <th>Origin Country</th>
+                            <th>Mobile Number</th>
+                            <th>Landline Number</th>
+                            <th>Email</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody id="customerTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- View Customer Details Table End -->
+    </div>
+
+
+</main>
+
+
+</body>
+</html>
