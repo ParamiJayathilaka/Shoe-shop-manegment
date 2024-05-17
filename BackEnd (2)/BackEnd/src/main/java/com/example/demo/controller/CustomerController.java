@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/customer")
 @CrossOrigin(origins = "*")
@@ -18,6 +20,12 @@ public class CustomerController {
     public CustomerController() {
         System.out.println("customer working !");
     }
+
+    @GetMapping("/getAllCustomers")
+    public List<CustomerDTO> getAllCustomers(){
+        return customerService.getAllCustomers();
+    }
+
 
     @PostMapping("/save")
     public CustomerDTO save(@RequestBody CustomerDTO customerDTO){
@@ -40,6 +48,12 @@ public class CustomerController {
         return String.valueOf(customerService.deleteCustomer(id));
 
     }
+
+    @GetMapping("/search")
+    public List<CustomerDTO> search(@RequestParam("name") String name){
+        return customerService.searchCustomer(name);
+    }
+
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/cusIdGenerate")
