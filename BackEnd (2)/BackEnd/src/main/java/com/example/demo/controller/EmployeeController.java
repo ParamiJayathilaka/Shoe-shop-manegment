@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.CustomDTO;
 import com.example.demo.dto.EmployeeDTO;
 import com.example.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -37,5 +39,12 @@ public class EmployeeController {
         System.out.println(id);
         return String.valueOf(employeeService.deleteEmployee(id));
 
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/employeeIdGenerate")
+    public @ResponseBody
+    CustomDTO employeeIdGenerate() {
+        return employeeService.employeeIdGenerate();
     }
 }

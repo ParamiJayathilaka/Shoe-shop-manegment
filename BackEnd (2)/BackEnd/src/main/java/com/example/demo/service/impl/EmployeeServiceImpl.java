@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.dto.CustomDTO;
 import com.example.demo.dto.CustomerDTO;
 import com.example.demo.dto.EmployeeDTO;
 import com.example.demo.entity.Customer;
@@ -63,14 +64,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         return null;
     }
 
-    @Override
-    public String generateNextId() {
-        return null;
-    }
 
     @Override
-    public List<EmployeeDTO> searchEmployee(String name) {
-        return null;
+    public List<EmployeeDTO> searchEmployee(String name){return null;}
+
+    @Override
+    public CustomDTO employeeIdGenerate() {
+        return new CustomDTO(employeeRepo.getLastIndex());
     }
 
 }
