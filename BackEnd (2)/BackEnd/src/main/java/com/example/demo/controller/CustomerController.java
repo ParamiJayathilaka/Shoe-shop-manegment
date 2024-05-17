@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.CustomDTO;
 import com.example.demo.dto.CustomerDTO;
 import com.example.demo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -37,5 +39,12 @@ public class CustomerController {
         System.out.println(id);
         return String.valueOf(customerService.deleteCustomer(id));
 
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/cusIdGenerate")
+    public @ResponseBody
+    CustomDTO customerIdGenerate() {
+        return customerService.customerIdGenerate();
     }
 }

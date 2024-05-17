@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.dto.CustomDTO;
 import com.example.demo.dto.CustomerDTO;
 import com.example.demo.entity.Customer;
 import com.example.demo.repository.CustomerRepo;
@@ -17,6 +18,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepo customerRepo;
+
+
 
     @Autowired
     private ModelMapper mapper;
@@ -60,13 +63,15 @@ public class CustomerServiceImpl implements CustomerService {
         return null;
     }
 
-    @Override
-    public String generateNextId() {
-        return null;
-    }
+
 
     @Override
     public List<CustomerDTO> searchCustomer(String name) {
         return null;
+    }
+
+    @Override
+    public CustomDTO customerIdGenerate() {
+        return new CustomDTO(customerRepo.getLastIndex());
     }
 }
