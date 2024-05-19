@@ -61,12 +61,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<EmployeeDTO> getAllEmployee() {
-        return null;
+        return employeeRepo.findAll().stream().map(employee -> mapper.map(employee, EmployeeDTO.class)).toList();
+
     }
 
 
     @Override
-    public List<EmployeeDTO> searchEmployee(String name){return null;}
+    public List<EmployeeDTO> searchEmployee(String name){
+        return employeeRepo.findByNameStartingWith(name).stream().map(employee -> mapper.map(employee, EmployeeDTO.class)).toList();
+
+    }
 
     @Override
     public CustomDTO employeeIdGenerate() {

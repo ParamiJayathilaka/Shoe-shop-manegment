@@ -21,7 +21,7 @@ public class EmployeeDTO {
     private String employeeName;
     private String employeeProfilePic;
     private Gender gender;
-    private String Status;
+    private String status;
     private String designation;
     private AccessRole accessRole;
     private Date dob;

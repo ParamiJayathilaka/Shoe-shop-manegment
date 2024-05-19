@@ -23,8 +23,6 @@ public class CustomerServiceImpl implements CustomerService {
     private ModelMapper mapper;
 
 
-
-
     @Override
     public CustomerDTO saveCustomer(CustomerDTO customerDTO) {
         if (customerRepo.existsById(customerDTO.getCode())){
@@ -67,13 +65,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> searchCustomer(String name) {
-
         return customerRepo.findByNameStartingWith(name).stream().map(customer -> mapper.map(customer, CustomerDTO.class)).toList();
-
     }
 
     @Override
     public CustomDTO customerIdGenerate() {
         return new CustomDTO(customerRepo.getLastIndex());
     }
+
 }

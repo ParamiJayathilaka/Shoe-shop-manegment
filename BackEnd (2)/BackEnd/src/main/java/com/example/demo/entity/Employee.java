@@ -22,15 +22,15 @@ public class Employee {
 
 
     @Id
-    private String EmployeeCode;
-    private String EmployeeName;
-    private String EmployeeProfilePic;
+    private String employeeCode;
+    private String employeeName;
+    private String employeeProfilePic;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    private String Status;
-    private String Designation;
+    private String status;
+    private String designation;
 
     @Enumerated(EnumType.STRING)
     private AccessRole accessRole;
