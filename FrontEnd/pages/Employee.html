@@ -53,7 +53,7 @@
     <!-- Customer Header Start -->
     <div class="container d-flex flex-grow-1 flex-column">
         <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
-            <h2  id="H1-3" style="font-family: 'Arial Rounded MT Bold',serif " class="text-primary"><i class="bi bi-people" ></i> Item
+            <h2  id="H1-3" style="font-family: 'Arial Rounded MT Bold',serif " class="text-primary"><i class="bi bi-people" ></i> Employee
             </h2>
         </div>
     </div>
@@ -76,7 +76,7 @@
                 <!-- Customer Details Search Section Start -->
                 <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 sectionBorder justify-content-lg-start"
                      style="background-color: #9a4242;height: max-content ">
-                    <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Customer</h4>
+                    <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Employee</h4>
                 </div>
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
@@ -85,77 +85,106 @@
                     <input  id="searchCusId" placeholder="Input Name/NIC/Tp Here" type="search">
                 </div>
 
-
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusCode">Employee code  :</label>
-                    <input class="form-control" id="txtCusCode" type="text" name="id">
-                    <span class="control-error"></span>
+                <div class="row g-3" style="color: #050505">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusCode">Employee code  :</label>
+                            <input class="form-control" id="txtCusCode" type="text" name="id">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusName">Employee name  :</label>
+                            <input class="form-control" id="txtCusName" type="text" name="name">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusName">Employee name  :</label>
-                    <input class="form-control" id="txtCusName" type="text" name="name">
-                    <span class="control-error"></span>
+                <div class="row g-3" style="color: #050505">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusGender">Employee Profile Pic  :</label>
+                            <input class="form-control" id="txtCusGender" type="text" name="gender">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCustomerJoinDate">Gender :</label>
+                            <input class="form-control" id="txtCustomerJoinDate" type="text" name="date">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusGender">Employee Profile Pic  :</label>
-                    <input class="form-control" id="txtCusGender" type="text" name="gender">
-                    <span class="control-error"></span>
+                <div class="row g-3" style="color: #050505">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusLevel">Status :</label>
+                            <input class="form-control" id="txtCusLevel" type="text" name="level">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusTotalPoints">Designation  :</label>
+                            <input class="form-control" id="txtCusTotalPoints" type="text" name="points">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCustomerJoinDate">Gender :</label>
-                    <input class="form-control" id="txtCustomerJoinDate" type="text" name="date">
-                    <span class="control-error"></span>
+                <div class="row g-3" style="color: #050505">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusDob">Access Role  :</label>
+                            <input class="form-control" id="txtCusDob" type="text" name="dateOfBirth">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusBuildingNo">DOB :</label>
+                            <input class="form-control" id="txtCusBuildingNo" type="text" name="buildingNo">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusLevel">Status :</label>
-                    <input class="form-control" id="txtCusLevel" type="text" name="level">
-                    <span class="control-error"></span>
+                <div class="row g-3" style="color: #050505">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusLane">Date of Join :</label>
+                            <input class="form-control" id="txtCusLane" type="text" name="lane">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusCity">Attached Branch  :</label>
+                            <input class="form-control" id="txtCusCity" type="text" name="City">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusTotalPoints">Designation  :</label>
-                    <input class="form-control" id="txtCusTotalPoints" type="text" name="points">
-                    <span class="control-error"></span>
-                </div>
-
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusDob">Access Role  :</label>
-                    <input class="form-control" id="txtCusDob" type="text" name="dateOfBirth">
-                    <span class="control-error"></span>
-                </div>
-
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusBuildingNo">DOB :</label>
-                    <input class="form-control" id="txtCusBuildingNo" type="text" name="buildingNo">
-                    <span class="control-error"></span>
-                </div>
-
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusLane">Date of Join :</label>
-                    <input class="form-control" id="txtCusLane" type="text" name="lane">
-                    <span class="control-error"></span>
-                </div>
-
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusCity">Attached Branch  :</label>
-                    <input class="form-control" id="txtCusCity" type="text" name="City">
-                    <span class="control-error"></span>
-                </div>
-
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusState">building no :</label>
-                    <input class="form-control" id="txtCusState" type="text" name="State">
-                    <span class="control-error"></span>
-                </div>
-
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="txtCusPostalCode">Postal Code :</label>
-                    <input class="form-control" id="txtCusPostalCode" type="text" name="postalCode">
-                    <span class="control-error"></span>
+                <div class="row g-3" style="color: #050505">
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusState">building no :</label>
+                            <input class="form-control" id="txtCusState" type="text" name="State">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3 ms-3 me-3 mt-3 ">
+                            <label class="fw-bold" for="txtCusPostalCode">Postal Code :</label>
+                            <input class="form-control" id="txtCusPostalCode" type="text" name="postalCode">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
                 </div>
 
             </section>
