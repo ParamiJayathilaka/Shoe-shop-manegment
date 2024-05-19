@@ -23,6 +23,7 @@ public class CustomerController {
 
     @GetMapping("/getAllCustomers")
     public List<CustomerDTO> getAllCustomers(){
+        System.out.println("customer getAll !");
         return customerService.getAllCustomers();
     }
 
@@ -61,4 +62,5 @@ public class CustomerController {
     CustomDTO customerIdGenerate() {
         return customerService.customerIdGenerate();
     }
+
 }

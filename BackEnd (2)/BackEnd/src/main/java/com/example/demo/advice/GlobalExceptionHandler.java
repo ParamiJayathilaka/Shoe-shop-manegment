@@ -5,52 +5,60 @@ import com.example.demo.service.exseption.NotFoundException;
 import com.example.demo.service.exseption.ServiceException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-
     @ExceptionHandler(ServiceException.class)
-    public ResponseEntity<Map<String,Object>> handleServiceException(ServiceException exp){
-        Map<String, Object> commonErrorAttribute;
-        if (exp instanceof DuplicateRecordException){
-            commonErrorAttribute = getCommonErrorAttribute(HttpStatus.CONFLICT);
-        }
-        else if (exp instanceof NotFoundException){
-            commonErrorAttribute = getCommonErrorAttribute(HttpStatus.NOT_FOUND);
+    public ResponseEntity<Map<String, Object>> handleServiceException(ServiceException exp){
+
+        Map<String, Object> errorAttribute;
+
+        if(exp instanceof DuplicateRecordException){
+            errorAttribute = getCommonErrorAttribute(HttpStatus.CONFLICT);
+        } else if (exp instanceof NotFoundException) {
+            errorAttribute = getCommonErrorAttribute(HttpStatus.NOT_FOUND);
+        }else{
+            errorAttribute = getCommonErrorAttribute(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        else {
-            commonErrorAttribute=getCommonErrorAttribute(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        commonErrorAttribute.put("message",exp.getMessage());
-
-        return new ResponseEntity<>(commonErrorAttribute,HttpStatus.valueOf((Integer) commonErrorAttribute.get("code")));
+        errorAttribute.put("message", exp.getMessage());
+        return new ResponseEntity<>(errorAttribute, HttpStatus.valueOf((Integer) errorAttribute.get("code")));
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String,Object>> handleMainException(Exception exp){
-        Map<String, Object> commonErrorAttribute = null;
-        if (exp instanceof MaxUploadSizeExceededException){
-            commonErrorAttribute = getCommonErrorAttribute(HttpStatus.NOT_ACCEPTABLE);
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map<String, Object> handleDataValidationException(MethodArgumentNotValidException exp){
+        Map<String, Object> errorAttribute = getCommonErrorAttribute(HttpStatus.BAD_REQUEST);
 
+        ArrayList<Map<String, Object>> errorList = new ArrayList<>();
+        for (FieldError fieldError : exp.getFieldErrors()) {
+            LinkedHashMap<String, Object> errorMap = new LinkedHashMap<>();
+            errorMap.put("field", fieldError.getField());
+            errorMap.put("message", fieldError.getDefaultMessage());
+            errorMap.put("rejected", fieldError.getRejectedValue());
+
+            errorList.add(errorMap);
         }
+        errorAttribute.put("message", "Data Validation Failed");
+        errorAttribute.put("errors", errorList);
 
-//        commonErrorAttribute.put("message",exp.getMessage());
-
-        return new ResponseEntity<>(commonErrorAttribute,HttpStatus.valueOf((Integer) commonErrorAttribute.get("code")));
+        return errorAttribute;
     }
 
-    public Map<String,Object> getCommonErrorAttribute(HttpStatus status){
-        LinkedHashMap<String, Object> errAttribute = new LinkedHashMap<>();
-        errAttribute.put("code",status.value());
-        errAttribute.put("status",status);
-        return errAttribute;
-
+    public Map<String, Object> getCommonErrorAttribute(HttpStatus status){
+        LinkedHashMap<String, Object> errorAttributes = new LinkedHashMap<>();
+        errorAttributes.put("code", status.value());
+        errorAttributes.put("status", status);
+        return errorAttributes;
     }
 }
