@@ -9,9 +9,11 @@ import java.util.List;
 
 public interface EmployeeRepo extends JpaRepository<Employee,String> {
 
-    @Query(value = "SELECT employee_code FROM employee ORDER BY employee_code DESC LIMIT 1", nativeQuery = true)
-    String getLastIndex();
-
-    List<Employee> findByNameStartingWith(String name);
+//    @Query(value = "SELECT empCode FROM employee ORDER BY empCode DESC LIMIT 1", nativeQuery = true)
+//    String getLastIndex();
+//
+//
+//
+//    List<Employee> findByEmployeeNameStartingWith(String name);
 
 }
