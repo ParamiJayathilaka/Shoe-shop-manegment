@@ -45,212 +45,142 @@
     </nav>
 </head>
 <body>
-<main class="container-fluid" id="SaleSection" style="background-color: #acb3b3">
-    <!-- Customer Header Start -->
-    <div class="container d-flex flex-grow-1 flex-column">
-        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
-            <h2  id="H1-3" style="font-family: 'Arial Rounded MT Bold',serif " class="text-primary"><i class="bi bi-people" ></i> Sale
-            </h2>
-        </div>
-    </div>
-    <!-- Customer Header End -->
 
-    <!-- Customer Header Section Start -->
-    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #979393">
-        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
-            <h6 id="H6" style="color: #ece9e9">Home > Sale</h6>
-            <hr>
-        </div>
-        <!-- Customer Header Section End -->
-
-
-        <section>
-
-            <!-- Customer Details Section Start -->
-            <div class="row justify-content-around " style="height: auto"></div>
-            <section>
-                <!-- Customer Details Search Section Start -->
-                <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 sectionBorder justify-content-lg-start"
-                     style="background-color: #9a4242;height: max-content ">
-                    <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Sale And Order</h4>
-                </div>
-
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="searchCusId" style="color: #ece9e9">Search Order :</label>
-                    <!--                    class="form-control "-->
-                    <input  id="searchCusId" placeholder="Input Name/NIC/Tp Here" type="search">
-                </div>
-
-
-                <div class="row g-3">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusCode">Item Code :</label>
-                            <input class="form-control" id="txtCusCode" type="text" name="id">
-                            <span class="control-error"></span>
-                        </div>
+<main class="container-fluid" id="orderContent" >
+    <div class="container-fluid mt-2" >
+        <div class="row border" >
+            <div class="col-12 col-md-4  mt-3 p-3 text-primary-emphasis  border border-primary-subtle rounded-3"
+                 style="border-radius: 10px; border: 2px solid #02e9ff; background-color: #000000">
+                <h4 style="text-align: center; color: #05d5e8; ">Invoice Details</h4>
+                <div class="row g-2" style="color: white">
+                    <div class="col-6">
+                        <label for="OrderId" class="form-label">Order Id :</label>
+                        <input type="text" id="OrderId" class="form-control" placeholder="Order Id" aria-label="Last name" style="background-color: #334344; color: white">
+                        <label for="OrderId" id="OrderNotTypeId" class="form-label" style="display: none;color: #07f6df"> :</label>
                     </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusName">Order No :</label>
-                            <input class="form-control" id="txtCusName" type="text" name="name">
-                            <span class="control-error"></span>
-                        </div>
+                    <div class="col-6">
+                        <label for="date" class="form-label">Order Date :</label>
+                        <input type="date" id="date" class="form-control" placeholder="Order Date" aria-label="Order Date" style="background-color: #334344; color: white">
+                    </div>
+                    <div class="col-6">
+                        <label for="CustominputState" class="form-label">Customer :</label>
+                        <select id="CustominputState" class="form-select" style="background-color: #334344; color: white">
+
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="custIdSetOrder" class="form-label" >Customer Id :</label>
+                        <input type="text" id="custIdSetOrder" class="form-control" placeholder="Customer Id" aria-label="Last name" style="background-color: #334344; color: white">
+                    </div>
+                    <div class="col-6">
+                        <label for="custNameSetOrder" class="form-label" >Customer Name :</label>
+                        <input type="text" id="custNameSetOrder" class="form-control" placeholder="Customer Name" aria-label="Last name" style="background-color: #334344; color: white">
+                    </div>
+                    <div class="col-6">
+                        <label for="custSalarySetOrder" class="form-label" >Customer Salary :</label>
+                        <input type="text" id="custSalarySetOrder" class="form-control" placeholder="Salary" aria-label="Last name" style="background-color: #334344; color: white">
+                    </div>
+                    <div class="col-6">
+                        <label for="custAddressSetOrder" class="form-label">Customer Address :</label>
+                        <input type="text" id="custAddressSetOrder" class="form-control" placeholder="Address" aria-label="Last name" style="background-color: #334344; color: white">
                     </div>
                 </div>
+            </div>
+            <div
+                    class="col-12 col-md-4  mt-3 p-3 text-primary-emphasis  border border-primary-subtle rounded-3"
+                    style="border-radius: 10px; border: 2px solid #00f7ff; background-color: #000000">
+                <!--item section-->
+                <h4 style="text-align: center; color: #05f7ff">Item Select</h4>
+                <div class="row g-2" style="color: white">
+                    <div class="col-6">
+                        <label for="IteminputState" class="form-label">Item :</label>
+                        <select id="IteminputState" class="form-select" style="background-color: #334344; color: white">
 
-
-                <div class="row g-3">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusGender">Customer Name :</label>
-                            <input class="form-control" id="txtCusGender" type="text" name="gender">
-                            <span class="control-error"></span>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="ItemIdSetOrder" class="form-label">Item Code :</label>
+                        <input type="text" id="ItemIdSetOrder" class="form-control" placeholder="Item Code" aria-label="Last name" style="background-color: #334344; color: white">
+                    </div>
+                    <div class="col-4">
+                        <label for="ItemNameSetOrder" class="form-label">Item Name :</label>
+                        <input type="text" id="ItemNameSetOrder" class="form-control" placeholder="Item Name" aria-label="Last name" style="background-color: #334344; color: white">
+                    </div>
+                    <div class="col-4">
+                        <label for="ItemPriceSetOrder" class="form-label">Price :</label>
+                        <input type="text" id="ItemPriceSetOrder" class="form-control" placeholder="Price" aria-label="Last name" style="background-color: #334344; color: white">
+                    </div>
+                    <div class="col-4">
+                        <label for="ItemQTYSetOrder" class="form-label">QtyOnHand :</label>
+                        <input type="text" id="ItemQTYSetOrder" class="form-control" placeholder="QtyOnHand" aria-label="Last name" style="background-color: #334344; color: white">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">OrderQty :</label>
+                        <input type="text" id="ChoiceQTYOrder" class="form-control" placeholder="OrderQty" aria-label="Last name" style="background-color: #334344; color: white">
+                        <div style="display: flex">
+                            <label id="qtymassage" class="form-label" style="font-size: 12px; color: red; display: none">Please enter amount lower than :</label>
+                            <label id="h1hello" style="position:relative;font-size: 12px; color: red; left:1%; display: none"> </label>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCustomerJoinDate">Item Desc :</label>
-                            <input class="form-control" id="txtCustomerJoinDate" type="text" name="date">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
+
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button id="addToCardOrder" type="button" class="btn btn-success mt-3  " style="background-color: #00e4fc; color:black ;">AddToCart</button>
                 </div>
 
-                <div class="row g-3">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusLevel">Size :</label>
-                            <input class="form-control" id="txtCusLevel" type="text" name="level">
-                            <span class="control-error"></span>
+                <!--porch section-->
+            </div>
+            <div
+                    class="col-12 col-md-4  mt-3 p-3 text-primary-emphasis  border border-primary-subtle rounded-3"
+                    style="border-radius: 10px; border: 2px solid #00f2fc; background-color: #050505">
+                <h2 style="color: #00c4ff">Total : RS <span id="lableTotPrice">0</span>/=</h2>
+                <h2 style=" color: #00b7ff">SubTotal : RS <span id="lableSubTotal">0</span>/=</h2>
+                <div class="row g-2" style="color: white">
+                    <div class="col-6">
+                        <label for="inputCash" class="form-label">Cash :</label>
+                        <input type="text" id="inputCash" class="form-control" placeholder="Cash" aria-label="First name" style="background-color: #334344; color: white">
+                        <div style="display: flex">
+                            <label id="cashLOwMasse" class="form-label" style="font-size: 12px; color: #ff0000; display: none">Please enter amount greater than :</label>
+                            <label id="cashShow" style="position:relative;font-size: 12px; color: #ff0000; left:1%; display: none"> </label>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusTotalPoints">Unit Price :</label>
-                            <input class="form-control" id="txtCusTotalPoints" type="text" name="points">
-                            <span class="control-error"></span>
-                        </div>
+                    <div class="col-6">
+                        <label for="discount" class="form-label">Discount :</label>
+                        <input type="number" id="discount" class="form-control" placeholder="Discount" aria-label="Last name" style="background-color: #334344; color: white">
                     </div>
-                </div>
-
-                <div class="row g-3">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusDob">Item Qty :</label>
-                            <input class="form-control" id="txtCusDob" type="text" name="dateOfBirth">
-                            <span class="control-error"></span>
-                        </div>
+                    <div class="col-12">
+                        <label for="BalanceInput" class="form-label">Balance :</label>
+                        <input type="text" id="BalanceInput" class="form-control" placeholder="Balance" aria-label="Last name" style="background-color: #334344; color: white">
                     </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusBuildingNo">Total Price :</label>
-                            <input class="form-control" id="txtCusBuildingNo" type="text" name="buildingNo">
-                            <span class="control-error"></span>
-                        </div>
+                    <div class="d-flex justify-content-center">
+                        <button id="purchase" type="button" class="btn btn-success" style="width: 30%;  background-color: #00e4fc; color:black ;">Purchase</button>
                     </div>
-                </div>
-
-                <div class="row g-3">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusLane">Purchase Date :</label>
-                            <input class="form-control" id="txtCusLane" type="text" name="lane">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusCity">Payment Method :</label>
-                            <input class="form-control" id="txtCusCity" type="text" name="City">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusState">Added Points :</label>
-                            <input class="form-control" id="txtCusState" type="text" name="State">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtCusPostalCode">Cashier Name :</label>
-                            <input class="form-control" id="txtCusPostalCode" type="text" name="postalCode">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-
-
-
-            <!--        &lt;!&ndash; Customer Details Search Section End &ndash;&gt;-->
-
-            <!--        &lt;!&ndash; Customer Details Search Section Start &ndash;&gt;-->
-
-            <!--        &lt;!&ndash; Customer Details Search Section End &ndash;&gt;-->
-
-            <!--    </div>-->
-
-
-        </section>
-
-
-        <div class="m-4">
-            <button class="btn btn-success mt-2 m-2" id="btnSaveCustomer" type="button"> Save
-            </button>
-
-            <button class="btn btn-warning mt-2 m-2" id="btnUpdateCustomer" type="button">Update
-            </button>
-
-            <button class="btn btn-danger mt-2 m-2" id="btnDeleteCustomer" type="button">Delete
-            </button>
-
-            <button class="btn bg-light mt-2 m-2" id="btnGetAllCustomer" type="button">Get All
-            </button>
-
-        </div>
-        <!-- Customer Details Section End -->
-
-        <!-- View Customer Details Table Start -->
-        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
-            <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">
-                <div class="customerTableDiv overflow-auto" style="height: 270px;">
-                    <table class="table table-success table-striped table-bordered table-hover">
-                        <thead class="text-light table-dark text-center  table-bordered sticky-top">
-                        <tr>
-                            <th>Item Code</th>
-                            <th>Order No</th>
-                            <th>Customer name</th>
-                            <th>Item desc</th>
-                            <th>Size</th>
-                            <th>Unit price </th>
-                            <th>Item qty. </th>
-                            <th>Total price</th>
-                            <th>Purchase date</th>
-                            <th>Payment method </th>
-                            <th>Added points</th>
-                            <th>Cashier name</th>
-
-
-                        </tr>
-                        </thead>
-                        <tbody id="customerTable"></tbody>
-                    </table>
                 </div>
             </div>
         </div>
-        <!-- View Customer Details Table End -->
+    </div>
+
+
+    <!--Table-->
+    <div class="table-responsive  mt-5 " style="height: 145px; bottom:35px; position: relative;">
+        <table id="clickTable" class="table table-bordered table-hover table-striped-columns " >
+            <thead>
+            <tr class="table mt-5 p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+                <th class="bg-primary-subtle">Item Code</th>
+                <th class="bg-primary-subtle">Item Name</th>
+                <th class="bg-primary-subtle">Price</th>
+                <th class="bg-primary-subtle">Quantity</th>
+                <th class="bg-primary-subtle">Total</th>
+            </tr>
+            </thead>
+            <tbody id="TBodyOrder">
+
+            </tbody>
+        </table>
     </div>
 
 
 </main>
-
 
 </body>
 </html>

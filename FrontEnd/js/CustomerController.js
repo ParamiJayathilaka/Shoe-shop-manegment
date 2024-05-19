@@ -21,78 +21,7 @@ function generateCustomerID() {
         }
     });
 }
-//
-// $("#btnSaveCustomer").click(function (e) {
-//     e.preventDefault();
-//     let formData = $("#customerForm").serialize();
-//
-//     let empId = $("#cusId").val();
-//     formData += "&code=" + empId;
-//
-//     $.ajax({
-//         url: "http://localhost:8080/back_End/customer",
-//         method: "POST",
-//         data: formData,
-//         dataType: "json",
-//         success: function (res) {
-//             alert("Save Customer");
-//         },
-//         error: function (xhr, status, error) {
-//             let errorMessage = "An error occurred.";
-//             if (xhr.responseText) {
-//                 errorMessage = JSON.parse(xhr.responseText).message;
-//             }
-//
-//         }
-//     });
-// });
-//
-// function loadAllCustomer() {
-//     $("#customerTable").empty();
-//     // Set purchaseDate field to current date and time
-//     $('#purchaseDate').val(new Date().toISOString().slice(0, 19).replace('T', ' '));
-//
-//     $.ajax({
-//         url:  "http://localhost:8080/back_End/customer",
-//         method: "GET",
-//         dataType: "json",
-//         success: function (res) {
-//             for (let i of res.data) {
-//                 let code = i.code;
-//                 let name = i.name;
-//                 let email = i.email;
-//                 let contact = i.contact;
-//                 let dob = i.dob;
-//                 let addressLine1 = i.addressLine1;
-//                 let addressLine2 = i.addressLine2;
-//                 let addressLine3 = i.addressLine3;
-//                 let addressLine4 = i.addressLine4;
-//                 let addressLine5 = i.addressLine5;
-//                 let addressLine6 = i.addressLine6;
-//                 let loyaltyDate = i.loyaltyDate;
-//                 let loyaltyLevel = i.loyaltyLevel;
-//                 let State = i.State;
-//                 let recentPurchaseDate = i.recentPurchaseDate;
-//
-//
-//
-//                 // let addressColumn = `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
-//
-//                 let row = `<tr><td>${code}</td><td>${name}</td><td>${email}</td><td>${contact}</td><td>${dob}</td><td>${addressLine1}</td><td>${addressLine2}</td><td>${addressLine3}</td><td>${addressLine4}</td><td>${addressLine5}</td><td>${addressLine6}</td><td>${loyaltyDate}</td><td>${loyaltyLevel}</td><td>${State}</td><td>${recentPurchaseDate}</td></tr>`;
-//                 $("#customerTable").append(row);
-//             }
-//             // blindClickEventsC();
-//             generateCustomerID();
-//             // setTextFieldValuesC("", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
-//             console.log(res.message);
-//         },
-//         error: function (error) {
-//             let message = JSON.parse(error.responseText).message;
-//             console.log(message);
-//         }
-//     });
-// }
-//
+////////////save/////
 
 $('#btnSaveCustomer').click(function (){
     let code = $('#cusId').val();
@@ -206,4 +135,133 @@ $('#btnUpdateCustomer').click(function (){
         }
     });
 })
+
+////delete///////
+$('#btnDeleteCustomer').click(function () {
+    let code = $('#cusId').val();
+
+    $.ajax({
+        url: 'http://localhost:8080/customer/' + code,
+        type: 'DELETE',
+        success: function (response) {
+            alert('Customer information deleted successfully!');
+            console.log('Deleted customer with code:', code);
+            // getAll();
+        },
+        error: function (xhr, status, error) {
+            console.error('Error deleting customer information:', error);
+            alert('Customer Not Found!');
+        }
+    });
+});
+
+
+////////////getall////////
+
+// function loadAllCustomer() {
+//     $("#customerTable").empty();
+//     // Set purchaseDate field to current date and time
+//     $('#purchaseDate').val(new Date().toISOString().slice(0, 19).replace('T', ' '));
+//
+//     $.ajax({
+//         url:  "http://localhost:8080/customer",
+//         method: "GET",
+//         dataType: "json",
+//         success: function (res) {
+//             for (let i of res.data) {
+//                 let code = i.code;
+//                 let name = i.name;
+//                 let email = i.email;
+//                 let contact = i.contact;
+//                 let dob = i.dob;
+//                 let addressLine1 = i.addressLine1;
+//                 let addressLine2 = i.addressLine2;
+//                 let addressLine3 = i.addressLine3;
+//                 let addressLine4 = i.addressLine4;
+//                 let addressLine5 = i.addressLine5;
+//                 let addressLine6 = i.addressLine6;
+//                 let loyaltyDate = i.loyaltyDate;
+//                 let loyaltyLevel = i.loyaltyLevel;
+//                 let State = i.State;
+//                 let recentPurchaseDate = i.recentPurchaseDate;
+//
+//
+//
+//                 // let addressColumn = `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
+//
+//                 let row = `<tr><td>${code}</td><td>${name}</td><td>${email}</td><td>${contact}</td><td>${dob}</td><td>${addressLine1}</td><td>${addressLine2}</td><td>${addressLine3}</td><td>${addressLine4}</td><td>${addressLine5}</td><td>${addressLine6}</td><td>${loyaltyDate}</td><td>${loyaltyLevel}</td><td>${State}</td><td>${recentPurchaseDate}</td></tr>`;
+//                 $("#customerTable").append(row);
+//             }
+//             // blindClickEventsC();
+//             generateCustomerID();
+//             // setTextFieldValuesC("", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+//             console.log(res.message);
+//         },
+//         error: function (error) {
+//             let message = JSON.parse(error.responseText).message;
+//             console.log(message);
+//         }
+//     });
+// }
+
+function loadAllCustomer() {
+    $("#customerTable").empty();
+
+    // Set purchaseDate field to current date and time
+    $('#purchaseDate').val(new Date().toISOString().slice(0, 19).replace('T', ' '));
+
+    $.ajax({
+        url: "http://localhost:8080/customer",
+        method: "GET",
+        dataType: "json",
+        success: function (res) {
+            res.data.forEach(customer => {
+                const {
+                    code,
+                    name,
+                    email,
+                    contact,
+                    dob,
+                    addressLine1,
+                    addressLine2,
+                    addressLine3,
+                    addressLine4,
+                    addressLine5,
+                    addressLine6,
+                    loyaltyDate,
+                    loyaltyLevel,
+                    State,
+                    recentPurchaseDate
+                } = customer;
+
+                let row = `<tr>
+                    <td>${code}</td>
+                    <td>${name}</td>
+                    <td>${email}</td>
+                    <td>${contact}</td>
+                    <td>${dob}</td>
+                    <td>${addressLine1}</td>
+                    <td>${addressLine2}</td>
+                    <td>${addressLine3}</td>
+                    <td>${addressLine4}</td>
+                    <td>${addressLine5}</td>
+                    <td>${addressLine6}</td>
+                    <td>${loyaltyDate}</td>
+                    <td>${loyaltyLevel}</td>
+                    <td>${State}</td>
+                    <td>${recentPurchaseDate}</td>
+                </tr>`;
+
+                $("#customerTable").append(row);
+            });
+
+            generateCustomerID();
+            console.log(res.message);
+        },
+        error: function (error) {
+            let message = error.responseJSON ? error.responseJSON.message : "An error occurred";
+            console.log(message);
+        }
+    });
+}
 
