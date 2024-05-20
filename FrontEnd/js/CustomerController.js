@@ -99,25 +99,22 @@ $('#btnUpdateCustomer').click(function (){
     let loyaltyPoints = $('#txtloyaltyPoints').val();
     let recentPurchaseDate = $('#txtCusPurchaseDate').val();
 
-    var customer = {
-        code:code,
-        name:name,
-        email:email,
-        gender:gender,
-        contact:contact,
-        dob:dob,
-        addressLine1:addressLine1,
-        addressLine2:addressLine2,
-        addressLine3:addressLine3,
-        addressLine4:addressLine4,
-        addressLine5:addressLine5,
-        addressLine6:addressLine6,
-        loyaltyDate:loyaltyDate,
-        loyaltyLevel:loyaltyLevel,
-        loyaltyPoints:loyaltyPoints,
-        recentPurchaseDate:recentPurchaseDate
+    var inventory = {
+        itemCode:itemCode,
+        itemDesc:itemDesc,
+        itemPicture:itemPicture,
+        category:category,
+        size:size,
+        supplierCode:supplierCode,
+        supplierName:supplierName,
+        unitPriceSale:unitPriceSale,
+        unitPriceBuy:unitPriceBuy,
+        expectedProfit:expectedProfit,
+        profitMargin:profitMargin,
+        Status:Status,
 
     }
+
 
     $.ajax({
         url: 'http://localhost:8080/customer/update',

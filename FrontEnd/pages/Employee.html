@@ -49,7 +49,7 @@
 
 </head>
 <body>
-<main class="container-fluid" id="CustomerSection" style="background-color: #cdd9d8">
+<main class="container-fluid" id="CustomerSection" style="background-color: #454545">
     <!-- Customer Header Start -->
     <div class="container d-flex flex-grow-1 flex-column">
         <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
@@ -60,10 +60,10 @@
     <!-- Customer Header End -->
 
     <!-- Customer Header Section Start -->
-    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #7b858b">
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #262626">
         <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
-            <h6 id="H6" style="color: #020202">Home > Employee</h6>
-            <hr>
+            <h6 id="H6" style="color: #ffffff">Home > Employee</h6>
+            <hr style="color: #ffffff">
         </div>
         <!-- Customer Header Section End -->
 
@@ -75,8 +75,8 @@
         <section>
             <!-- Customer Details Search Section Start -->
             <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 sectionBorder justify-content-lg-center"
-                 style="background-color: #19bfbf ;height: max-content ">
-                <h4 class="text-center p-2 text-light rounded-3" style="background: #000000">Manage Employee</h4>
+                 style="background-color: #fffdfd ;height: max-content ">
+                <h4 class="text-center p-2 text-light rounded-3" style="background: #050505">Manage Employee</h4>
             </div>
 
             <div class="mb-3 ms-3 me-3 mt-3 ">
@@ -88,19 +88,19 @@
             <form id="customerForm">
                 <section>
 
-                    <div class="row g-3" style="color: #050505">
+                    <div class="row g-3" style="color: #2c3136">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpCode">Employee code  :</label>
-                                <input class="form-control" id="txtEmpCode" type="text" name="id">
+                                <label class="fw-bold" for="txtEmpCode" style="color: #ece9e9">Employee code  :</label>
+                                <input class="form-control" id="txtEmpCode" type="text" name="id" style="background-color: #485757; color: white">
                                 <span class="control-error"></span>
                             </div>
 
                         </div>
                         <div class="col">
-                            <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpName">Employee name  :</label>
-                                <input class="form-control" id="txtEmpName" type="text" name="name">
+                            <div class="mb-3 ms-3 me-3 mt-3">
+                                <label class="fw-bold" for="txtEmpName" style="color: #ece9e9">Employee name  :</label>
+                                <input class="form-control" id="txtEmpName" type="text" name="name" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
@@ -110,15 +110,15 @@
                     <div class="row g-3" style="color: #050505">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpProfilePic">Employee Profile Pic  :</label>
-                                <input class="form-control" id="txtEmpProfilePic" type="text" name="gender">
+                                <label class="fw-bold" for="txtEmpProfilePic" style="color: #ece9e9">Employee Profile Pic  :</label>
+                                <input class="form-control" id="txtEmpProfilePic" type="text" name="gender" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpGender">Gender :</label>
-                                <select class="form-control" id="txtEmpGender" name="gender">
+                                <label class="fw-bold" for="txtEmpGender" style="color: #ece9e9">Gender :</label>
+                                <select class="form-control" id="txtEmpGender" name="gender" style="background-color: #334344; color: white">
                                     <option value="MALE">MALE</option>
                                     <option value="FEMALE">FEMALE</option>
                                     <option value="OTHERS">OTHERS</option>
@@ -131,32 +131,15 @@
                     <div class="row g-3" style="color: #050505">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtContact">Contact :</label>
-                                <input class="form-control" id="txtContact" type="text" name="contact">
+                                <label class="fw-bold" for="txtContact" style="color: #ece9e9">Contact :</label>
+                                <input class="form-control" id="txtContact" type="text" name="contact" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtDob">DOB :</label>
-                                <input class="form-control" id="txtDob" type="date" name="dob">
-                                <span class="control-error"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row g-3" style="color: #050505">
-                        <div class="col">
-                            <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpStatus">Status :</label>
-                                <input class="form-control" id="txtEmpStatus" type="text" name="level">
-                                <span class="control-error"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpDesignation">Designation  :</label>
-                                <input class="form-control" id="txtEmpDesignation" type="text" name="points">
+                                <label class="fw-bold" for="txtDob" style="color: #ece9e9">DOB :</label>
+                                <input class="form-control" id="txtDob" type="date" name="dob" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
@@ -165,15 +148,15 @@
                     <div class="row g-3" style="color: #050505">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtAddress3">Address 3 :</label>
-                                <input class="form-control" id="txtAddress3" type="text" name="addressLine3">
+                                <label class="fw-bold" for="txtEmpStatus" style="color: #ece9e9">Status :</label>
+                                <input class="form-control" id="txtEmpStatus" type="text" name="level" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtAddress4">Address 4 :</label>
-                                <input class="form-control" id="txtAddress4" type="text" name="addressLine4">
+                                <label class="fw-bold" for="txtEmpDesignation" style="color: #ece9e9">Designation  :</label>
+                                <input class="form-control" id="txtEmpDesignation" type="text" name="points" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
@@ -182,8 +165,25 @@
                     <div class="row g-3" style="color: #050505">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpAccessRole">Access Role  :</label>
-                                <select class="form-control" id="txtEmpAccessRole" name="accessRole">
+                                <label class="fw-bold" for="txtAddress3" style="color: #ece9e9">Address 3 :</label>
+                                <input class="form-control" id="txtAddress3" type="text" name="addressLine3" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtAddress4" style="color: #ece9e9">Address 4 :</label>
+                                <input class="form-control" id="txtAddress4" type="text" name="addressLine4" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtEmpAccessRole" style="color: #ece9e9">Access Role  :</label>
+                                <select class="form-control" id="txtEmpAccessRole" name="accessRole" style="background-color: #334344; color: white">
                                     <option value="ADMIN">ADMIN</option>
                                     <option value="USER">USER</option>
 
@@ -193,8 +193,8 @@
                         </div>
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpDob">Date Of Birth :</label>
-                                <input class="form-control" id="txtEmpDob" type="date" name="buildingNo">
+                                <label class="fw-bold" for="txtEmpDob" style="color: #ece9e9">Date Of Birth :</label>
+                                <input class="form-control" id="txtEmpDob" type="date" name="buildingNo" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
@@ -203,15 +203,15 @@
                     <div class="row g-3" style="color: #050505">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpDateOfJoin">Date of Join :</label>
-                                <input class="form-control" id="txtEmpDateOfJoin" type="date" name="lane">
+                                <label class="fw-bold" for="txtEmpDateOfJoin" style="color: #ece9e9">Date of Join :</label>
+                                <input class="form-control" id="txtEmpDateOfJoin" type="date" name="lane" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpAttachedBranch">Attached Branch  :</label>
-                                <input class="form-control" id="txtEmpAttachedBranch" type="text" name="City">
+                                <label class="fw-bold" for="txtEmpAttachedBranch" style="color: #ece9e9">Attached Branch  :</label>
+                                <input class="form-control" id="txtEmpAttachedBranch" type="text" name="City" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
@@ -220,14 +220,14 @@
                     <div class="row g-3" style="color: #050505">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpBuildingNo">Building No :</label>
-                                <input class="form-control" id="txtEmpBuildingNo" type="text" name="State">
+                                <label class="fw-bold" for="txtEmpBuildingNo" style="color: #ece9e9">Building No :</label>
+                                <input class="form-control" id="txtEmpBuildingNo" type="text" name="State" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpLane">Lane :</label>
+                                <label class="fw-bold" for="txtEmpLane" style="color: #ece9e9">Lane :</label>
                                 <!--                         //   <input class="form-control" id="txtEmpPostalCode" type="text" name="postalCode">-->
                                 <input type="text" id="txtEmpLane" class="form-control" placeholder="lane"  style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
@@ -238,32 +238,15 @@
                     <div class="row g-3" style="color: #050505">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpCity">City :</label>
-                                <input class="form-control" id="txtEmpCity" type="text" name="addressLine3">
+                                <label class="fw-bold" for="txtEmpCity" style="color: #ece9e9">City :</label>
+                                <input class="form-control" id="txtEmpCity" type="text" name="addressLine3" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpState">State :</label>
-                                <input class="form-control" id="txtEmpState" type="text" name="addressLine4">
-                                <span class="control-error"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row g-3" style="color: #050505">
-                        <div class="col">
-                            <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpPostalCode">Postal Code :</label>
-                                <input class="form-control" id="txtEmpPostalCode" type="text" name="addressLine5">
-                                <span class="control-error"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpContact">Mob.Num Or Contact :</label>
-                                <input class="form-control" id="txtEmpContact" type="text" name="addressLine6">
+                                <label class="fw-bold" for="txtEmpState" style="color: #ece9e9">State :</label>
+                                <input class="form-control" id="txtEmpState" type="text" name="addressLine4" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
@@ -272,15 +255,15 @@
                     <div class="row g-3" style="color: #050505">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpEmail">Email :</label>
-                                <input class="form-control" id="txtEmpEmail" type="text" name="email">
+                                <label class="fw-bold" for="txtEmpPostalCode" style="color: #ece9e9">Postal Code :</label>
+                                <input class="form-control" id="txtEmpPostalCode" type="text" name="addressLine5" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpEmergencyGuardian">Emergency Guardian :</label>
-                                <input class="form-control" id="txtEmpEmergencyGuardian" type="text" name="loyaltyDate">
+                                <label class="fw-bold" for="txtEmpContact" style="color: #ece9e9">Mob.Num Or Contact :</label>
+                                <input class="form-control" id="txtEmpContact" type="text" name="addressLine6" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
@@ -289,8 +272,25 @@
                     <div class="row g-3" style="color: #050505">
                         <div class="col">
                             <div class="mb-3 ms-3 me-3 mt-3 ">
-                                <label class="fw-bold" for="txtEmpEmergencyContact">Emergency Contact :</label>
-                                <input class="form-control" id="txtEmpEmergencyContact" type="text" name="loyaltyDate">
+                                <label class="fw-bold" for="txtEmpEmail" style="color: #ece9e9">Email :</label>
+                                <input class="form-control" id="txtEmpEmail" type="text" name="email" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtEmpEmergencyGuardian" style="color: #ece9e9">Emergency Guardian :</label>
+                                <input class="form-control" id="txtEmpEmergencyGuardian" type="text" name="loyaltyDate" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtEmpEmergencyContact" style="color: #ece9e9">Emergency Contact :</label>
+                                <input class="form-control" id="txtEmpEmergencyContact" type="text" name="loyaltyDate" style="background-color: #334344; color: white">
                                 <span class="control-error"></span>
                             </div>
                         </div>
