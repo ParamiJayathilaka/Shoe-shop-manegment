@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.dto.CustomDTO;
 import com.example.demo.dto.CustomerDTO;
 import com.example.demo.dto.InventoryDTO;
 import com.example.demo.entity.Customer;
@@ -64,7 +65,8 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public List<InventoryDTO> getAllInventory() {
-        return null;
+        return inventoryRepo.findAll().stream().map(inventory -> mapper.map(inventory, InventoryDTO.class)).toList();
+
     }
 
     @Override
@@ -75,5 +77,11 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public List<InventoryDTO> searchInventory(String name) {
         return null;
+    }
+
+    @Override
+    public CustomDTO inventoryIdGenerate() {
+        return new CustomDTO(inventoryRepo.getLastIndex());
+
     }
 }
