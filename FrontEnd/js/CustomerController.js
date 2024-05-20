@@ -204,64 +204,66 @@ $('#btnDeleteCustomer').click(function () {
 //     });
 // }
 
-function loadAllCustomer() {
-    $("#customerTable").empty();
+// function loadAllCustomer() {
+//     $("#customerTable").empty();
+//
+//     // Set purchaseDate field to current date and time
+//     $('#purchaseDate').val(new Date().toISOString().slice(0, 19).replace('T', ' '));
+//
+//     $.ajax({
+//         url: "http://localhost:8080/customer/getAllCustomers",
+//         method: "GET",
+//         dataType: "json",
+//         success: function (res) {
+//             res.data.forEach(customer => {
+//                 const {
+//                     code,
+//                     name,
+//                     email,
+//                     contact,
+//                     dob,
+//                     addressLine1,
+//                     addressLine2,
+//                     addressLine3,
+//                     addressLine4,
+//                     addressLine5,
+//                     addressLine6,
+//                     loyaltyDate,
+//                     loyaltyLevel,
+//                     State,
+//                     recentPurchaseDate
+//                 } = customer;
+//
+//                 let row = `<tr>
+//                     <td>${code}</td>
+//                     <td>${name}</td>
+//                     <td>${email}</td>
+//                     <td>${contact}</td>
+//                     <td>${dob}</td>
+//                     <td>${addressLine1}</td>
+//                     <td>${addressLine2}</td>
+//                     <td>${addressLine3}</td>
+//                     <td>${addressLine4}</td>
+//                     <td>${addressLine5}</td>
+//                     <td>${addressLine6}</td>
+//                     <td>${loyaltyDate}</td>
+//                     <td>${loyaltyLevel}</td>
+//                     <td>${State}</td>
+//                     <td>${recentPurchaseDate}</td>
+//                 </tr>`;
+//
+//                 $("#customerTable").append(row);
+//             });
+//
+//             generateCustomerID();
+//             console.log(res.message);
+//         },
+//         error: function (error) {
+//             let message = error.responseJSON ? error.responseJSON.message : "An error occurred";
+//             console.log(message);
+//         }
+//     });
+// }
 
-    // Set purchaseDate field to current date and time
-    $('#purchaseDate').val(new Date().toISOString().slice(0, 19).replace('T', ' '));
 
-    $.ajax({
-        url: "http://localhost:8080/customer",
-        method: "GET",
-        dataType: "json",
-        success: function (res) {
-            res.data.forEach(customer => {
-                const {
-                    code,
-                    name,
-                    email,
-                    contact,
-                    dob,
-                    addressLine1,
-                    addressLine2,
-                    addressLine3,
-                    addressLine4,
-                    addressLine5,
-                    addressLine6,
-                    loyaltyDate,
-                    loyaltyLevel,
-                    State,
-                    recentPurchaseDate
-                } = customer;
-
-                let row = `<tr>
-                    <td>${code}</td>
-                    <td>${name}</td>
-                    <td>${email}</td>
-                    <td>${contact}</td>
-                    <td>${dob}</td>
-                    <td>${addressLine1}</td>
-                    <td>${addressLine2}</td>
-                    <td>${addressLine3}</td>
-                    <td>${addressLine4}</td>
-                    <td>${addressLine5}</td>
-                    <td>${addressLine6}</td>
-                    <td>${loyaltyDate}</td>
-                    <td>${loyaltyLevel}</td>
-                    <td>${State}</td>
-                    <td>${recentPurchaseDate}</td>
-                </tr>`;
-
-                $("#customerTable").append(row);
-            });
-
-            generateCustomerID();
-            console.log(res.message);
-        },
-        error: function (error) {
-            let message = error.responseJSON ? error.responseJSON.message : "An error occurred";
-            console.log(message);
-        }
-    });
-}
 

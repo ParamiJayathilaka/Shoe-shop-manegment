@@ -12,12 +12,12 @@ function generateEmployeeID() {
             console.log("id: " + id);
             if (id) {
                 let tempId = parseInt(id.split("-")[1]) + 1;
-                let newId = "C00-" + tempId.toString().padStart(3, '0');
+                let newId = "E00-" + tempId.toString().padStart(3, '0');
                 $("#txtEmpCode").val(newId);
             }
         },
         error: function (ob, statusText, error) {
-            console.error("Error generating employee ID:", statusText, error);
+            console.error("Error generating customer ID:", statusText, error);
         }
     });
 }
@@ -25,7 +25,7 @@ function generateEmployeeID() {
 ////////////save/////
 
 $('#btnSaveEmployee').click(function (){
-    let employeeCode = $('#txtEmpCode').val();
+    let empCode = $('#txtEmpCode').val();
     let employeeName = $('#txtEmpName').val();
     let employeeProfilePic = $('#txtEmpProfilePic').val();
     let gender = $('#txtEmpGender').val();
@@ -46,7 +46,7 @@ $('#btnSaveEmployee').click(function (){
     let emergencyContact = $('#txtEmpEmergencyContact').val();
 
     var employee = {
-        employeeCode :employeeCode,
+        empCode :empCode,
         employeeName :employeeName,
         employeeProfilePic : employeeProfilePic,
         gender :gender,
@@ -86,7 +86,7 @@ $('#btnSaveEmployee').click(function (){
 
 //// update///
 $('#btnUpdateEmployee').click(function (){
-    let employeeCode = $('#txtEmpCode').val();
+    let empCode = $('#txtEmpCode').val();
     let employeeName = $('#txtEmpName').val();
     let employeeProfilePic = $('#txtEmpProfilePic').val();
     let gender = $('#txtEmpGender').val();
@@ -108,7 +108,7 @@ $('#btnUpdateEmployee').click(function (){
     val();
 
     var employee = {
-        employeeCode :employeeCode,
+        empCode :empCode,
         employeeName :employeeName,
         employeeProfilePic : employeeProfilePic,
         gender :gender,
@@ -150,14 +150,14 @@ $('#btnUpdateEmployee').click(function (){
 ////delete////
 
 $('#btnDeleteEmployee').click(function () {
-    let employeeCode = $('#txtEmpCode').val();
+    let empCode = $('#txtEmpCode').val();
 
     $.ajax({
-        url: 'http://localhost:8080/employee/' + employeeCode,
+        url: 'http://localhost:8080/employee/' + empCode,
         type: 'DELETE',
         success: function (response) {
             alert('employee information deleted successfully!');
-            console.log('Deleted employee with code:', employeeCode);
+            console.log('Deleted employee with code:', empCode);
             // getAll();
         },
         error: function (xhr, status, error) {
