@@ -16,7 +16,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class SupplierDTO {
 
-    private String supplierCode;
+    private String supCode;
     private String name;
     private Category category;
     private String addressLine1;

@@ -70,11 +70,6 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public String generateNextId() {
-        return null;
-    }
-
-    @Override
     public List<InventoryDTO> searchInventory(String name) {
         return null;
     }

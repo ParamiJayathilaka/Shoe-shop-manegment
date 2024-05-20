@@ -1,8 +1,6 @@
 package com.example.demo.entity;
 
 import com.example.demo.util.Category;
-import com.example.demo.util.CustomerLoyaltyLevel;
-import com.example.demo.util.Gender;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -11,8 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -20,9 +16,8 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class Supplier {
 
-
     @Id
-    private String supplierCode;
+    private String supCode;
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -37,6 +32,4 @@ public class Supplier {
     private String contactNo1;
     private String contactNo2;
     private String email;
-
-
 }

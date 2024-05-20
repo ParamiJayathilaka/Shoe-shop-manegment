@@ -1,10 +1,8 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.dto.CustomerDTO;
+import com.example.demo.dto.CustomDTO;
 import com.example.demo.dto.SupplierDTO;
-import com.example.demo.entity.Customer;
 import com.example.demo.entity.Supplier;
-import com.example.demo.repository.CustomerRepo;
 import com.example.demo.repository.SupplierRepo;
 import com.example.demo.service.SupplierService;
 import com.example.demo.service.exseption.DuplicateRecordException;
@@ -26,7 +24,7 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public SupplierDTO saveSupplier(SupplierDTO supplierDTO) {
-        if (supplierRepo.existsById(supplierDTO.getSupplierCode())){
+        if (supplierRepo.existsById(supplierDTO.getSupCode())){
             throw new DuplicateRecordException("Customer Id is already exists !!");
         }
         return mapper.map(supplierRepo.save(mapper.map(supplierDTO, Supplier.class)), SupplierDTO.class);
@@ -34,16 +32,14 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public SupplierDTO updateSupplier(SupplierDTO supplierDTO) {
-        if (!supplierRepo.existsById(supplierDTO.getSupplierCode())){
+        if (!supplierRepo.existsById(supplierDTO.getSupCode())){
             throw new NotFoundException("Can't find customer id !!");
         }
 
-        Supplier supplier  = supplierRepo.findById(supplierDTO.getSupplierCode()).get();
+        Supplier supplier  = supplierRepo.findById(supplierDTO.getSupCode()).get();
         System.out.println("supplier is "+supplier);
 
         supplierDTO.setCategory(supplier.getCategory());
-//        supplierDTO.se(customer.getLoyaltyPoints());
-//        customerDTO.setRecentPurchaseDate(customer.getRecentPurchaseDate());
 
         return mapper.map(supplierRepo.save(mapper.map(supplierDTO, Supplier.class)), SupplierDTO.class);
     }
@@ -60,16 +56,19 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public List<SupplierDTO> getAllSupplier() {
+        return supplierRepo.findAll().stream().map(supplier -> mapper.map(supplier, SupplierDTO.class)).toList();
+
+    }
+
+    @Override
+    public List<SupplierDTO> searchSupplier(String name) {
         return null;
     }
 
     @Override
-    public String generateNextId() {
-        return null;
+    public CustomDTO supplierIdGenerate() {
+        return new CustomDTO(supplierRepo.getLastIndex());
+
     }
 
-    @Override
-    public List<SupplierDTO> searchCustomer(String name) {
-        return null;
-    }
 }

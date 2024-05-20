@@ -56,7 +56,7 @@ public class InventoryController {
 
 
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/invenIdGenerate")
+    @GetMapping(path = "/inventoryIdGenerate")
     public @ResponseBody
     CustomDTO inventoryIdGenerate() {
         return inventoryService.inventoryIdGenerate();
