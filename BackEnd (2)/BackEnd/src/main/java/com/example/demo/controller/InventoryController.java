@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.EmployeeDTO;
 import com.example.demo.dto.InventoryDTO;
-import com.example.demo.service.EmployeeService;
 import com.example.demo.service.InventoryService;
-import com.example.demo.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
