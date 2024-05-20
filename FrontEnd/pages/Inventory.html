@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assest/boostrap/css/styles.css">
 
-    <nav class="navbar navbar-expand-lg navbar-light shadow-lg posNavi position-relative rounded-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg posNavi position-relative rounded-bottom" style="background-color: #000000">
         <div class="container-fluid">
 
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
@@ -16,19 +17,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" id="homeBtn">
-                        <a aria-current="page" class="nav-link active" href="../index.html">Home</a>
+                        <a aria-current="page" class="nav-link active" href="../index.html" style="color: #ece9e9">Home</a>
                     </li>
                     <li class="nav-item" id="customerBtn">
-                        <a class="nav-link" href="customer.html">Customer </a>
+                        <a class="nav-link" href="customer.html" style="color: #ece9e9">Customer </a>
                     </li>
                     <li class="nav-item" id="itemBtn">
-                        <a class="nav-link" href="Inventory.html">Items</a>
+                        <a class="nav-link" href="Inventory.html" style="color: #ece9e9">Items</a>
                     </li>
                     <li class="nav-item" id="orderBtn">
-                        <a class="nav-link" href="orders.html">Orders</a>
+                        <a class="nav-link" href="orders.html" style="color: #ece9e9">Orders</a>
                     </li>
                     <li class="nav-item" id="orderDetailsBtn">
-                        <a class="nav-link" href="orderDetails.html">Order Details</a>
+                        <a class="nav-link" href="orderDetails.html" style="color: #ece9e9">Order Details</a>
                     </li>
 
                 </ul>
@@ -43,9 +44,10 @@
             </div>
         </div>
     </nav>
+
 </head>
 <body>
-<main class="container-fluid" id="CustomerSection" style="background-color: #acb3b3">
+<main class="container-fluid" id="CustomerSection" style="background-color: #cdd9d8">
     <!-- Customer Header Start -->
     <div class="container d-flex flex-grow-1 flex-column">
         <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
@@ -56,7 +58,7 @@
     <!-- Customer Header End -->
 
     <!-- Customer Header Section Start -->
-    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #979393">
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #7b858b">
         <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
             <h6 id="H6" style="color: #ece9e9">Home > Item</h6>
             <hr>
@@ -72,7 +74,7 @@
                 <!-- Customer Details Search Section Start -->
                 <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 sectionBorder justify-content-lg-start"
                      style="background-color: #9a4242;height: max-content ">
-                    <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Item</h4>
+                    <h4 class="text-center p-2 text-light rounded-3" style="background: #000000">Manage Item</h4>
                 </div>
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
@@ -110,8 +112,18 @@
                     <div class="col">
                         <div class="mb-3 ms-3 me-3 mt-3 ">
                             <label class="fw-bold" for="txtItemCategory">Category  :</label>
-                            <input class="form-control" id="txtItemCategory" type="text" name="date">
+                            <select class="form-control" id="txtItemCategory" name="date" type="text">
+                                <option value="Heel">H:Heel</option>
+                                <option value="Flats">F:Flats</option>
+                                <option value="Wedges">W:Wedges</option>
+                                <option value="FlipFlops">FF: Flip Flops</option>
+                                <option value="Sandals">SD: Sandals</option>
+                                <option value="Shoes">S: Shoes</option>
+                                <option value="Slippers">SL: Slippers</option>
+
+                            </select>
                             <span class="control-error"></span>
+
                         </div>
                     </div>
                 </div>
@@ -251,6 +263,9 @@
 
 </main>
 
+
+<script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>
+<script src="../js/InventoryController.js"></script>
 
 </body>
 </html>
