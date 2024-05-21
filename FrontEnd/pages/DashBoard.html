@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Template</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Title</title>
+  <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assest/boostrap/css/styles.css">
+  <!--    <link rel="stylesheet" href="../assest/sweetalert2-11.6.16/sweetalert2.css">-->
+
+
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    .wrapper {
+      display: flex;
+      flex: 1;
+    }
+    .sidebar {
+      min-width: 250px;
+      background-color: #343a40;
+      color: white;
+      padding: 20px;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+    .header {
+      background-color: #f8f9fa;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav class="sidebar d-flex flex-column" style="background-color: #1c282d">
+
+    <img src="../assest/image/shoename.png"  height="90" width="150"/>
+
+    <hr style="color: #ffffff;  size: B5 ">
+
+    <h4 class="text-center"  style="font-style: italic; color: #04c5ff"><b>IF THE SHOE FITS, BUY IT !</b></h4>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <hr style="color: #ffffff;  ">
+
+      <li class="nav-item" id="customerBtn">
+        <a class="nav-link" href="Customer.html" style="color: #fffefe; font-size: 20px; font-style: oblique"><ul>Customer</ul></a>
+      </li>
+      <li class="nav-item" id="itemBtn">
+        <a class="nav-link" href="Inventory.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Items</ul></a>
+      </li>
+      <li class="nav-item" id="orderBtn">
+        <a class="nav-link" href="Employee.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Employee</ul></a>
+      </li>
+      <li class="nav-item" id="orderDetailsBtn">
+        <a class="nav-link" href="Supplier.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Supplier</ul></a>
+      </li>
+
+
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content" style="background-color: #2a3d42;">
+    <!-- Header -->
+    <div class="header" style="background-color: #5dd0ef;">
+      <h1>Dashboard</h1>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Image 1">
+            <div class="card-body">
+              <h5 class="card-title">Item Quantity</h5>
+              <p class="card-text">The number of items sold during the day.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Image 2">
+            <div class="card-body">
+              <h5 class="card-title">Card Title 2</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Image 3">
+            <div class="card-body">
+              <h5 class="card-title">Card Title 3</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
