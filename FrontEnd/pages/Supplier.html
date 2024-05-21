@@ -9,28 +9,29 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-lg posNavi position-relative rounded-bottom" style="background-color: #000000">
         <div class="container-fluid" >
+            <img src="../assest/image/shoename.png" height="67" width="150"/>
 
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler" data-bs-target="#navbarSupportedContent"
                     data-bs-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse align-content-lg-center" id="navbarSupportedContent" >
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item" id="homeBtn">
-                        <a aria-current="page" class="nav-link active" href="../index.html" style="color: #ece9e9">Home</a>
+                    <li class="nav-item" id="homeBtn" >
+                        <a aria-current="page" class="nav-link active" href="../index.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Home</ul></a>
                     </li>
                     <li class="nav-item" id="customerBtn">
-                        <a class="nav-link" href="customer.html" style="color: #ece9e9">Customer </a>
+                        <a class="nav-link" href="Customer.html" style="color: #fffefe; font-size: 20px; font-style: oblique"><ul>Customer</ul></a>
                     </li>
                     <li class="nav-item" id="itemBtn">
-                        <a class="nav-link" href="Inventory.html" style="color: #ece9e9">Items</a>
+                        <a class="nav-link" href="Inventory.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Items</ul></a>
                     </li>
                     <li class="nav-item" id="orderBtn">
-                        <a class="nav-link" href="orders.html" style="color: #ece9e9">Supplier</a>
+                        <a class="nav-link" href="Employee.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Employee</ul></a>
                     </li>
                     <li class="nav-item" id="orderDetailsBtn">
-                        <a class="nav-link" href="orderDetails.html" style="color: #ece9e9">Order Details</a>
+                        <a class="nav-link" href="Supplier.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Supplier</ul></a>
                     </li>
 
                 </ul>
@@ -54,8 +55,9 @@
     <!-- Customer Header Start -->
     <div class="container d-flex flex-grow-1 flex-column">
         <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
-            <h2  id="H1-3" style="color: #050505 "  ><i class="bi bi-people" ></i> Supplier
+            <h2  id="H1-3" style="color: #00c1ff; font-style: italic; font-size: 40px; "  ><i class="bi bi-people" ></i> <b>Supplier </b>
             </h2>
+        </div>
         </div>
     </div>
     <!-- Customer Header End -->
@@ -224,18 +226,14 @@
 
         </section>
 
-
         <div class="m-4">
-            <button type="button" class="btn btn-primary" id="btnSaveSupplier">Save</button>
+            <button type="button" class="btn btn-outline-primary mt-2 m-2" id="btnSaveSupplier">Save</button>
             </button>
 
-            <button class="btn btn-warning mt-2 m-2" id="btnUpdateSupplier" type="button">Update
+            <button class="btn btn-outline-warning mt-2 m-2 " id="btnUpdateSupplier" type="button">Update
             </button>
 
-            <button class="btn btn-danger mt-2 m-2" id="btnDeleteSupplier" type="button">Delete
-            </button>
-
-            <button class="btn bg-light mt-2 m-2" id="btnGetAllSupplier" type="button">Get All
+            <button class="btn btn-outline-danger mt-2 m-2" id="btnDeleteSupplier" type="button">Delete
             </button>
 
         </div>
@@ -245,31 +243,24 @@
         <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
             <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">
                 <div class="customerTableDiv overflow-auto" style="height: 270px;">
-                    <table class="table table-success table-striped table-bordered table-hover">
+                    <table id="supplierTable" class="table table-success table-striped table-bordered table-hover">
                         <thead class="text-light table-dark text-center  table-bordered sticky-top">
                         <tr>
-                            <th>Employee code</th>
-                            <th>Employee Name</th>
-                            <th>Employee Profile Pic</th>
-                            <th>Gender</th>
-                            <th>Status</th>
-                            <th>Designation</th>
-                            <th>Access Role</th>
-                            <th>DOB</th>
-                            <th>Date of Join </th>
-                            <th>Attached Branch </th>
+                            <th>Supplier code</th>
+                            <th>Supplier Name</th>
+                            <th>Category</th>
                             <th>Building no</th>
                             <th>Lane</th>
                             <th>City</th>
                             <th>State</th>
                             <th>Postal Code</th>
-                            <th>Contact Number</th>
+                            <th>Country</th>
+                            <th>Mobile Number</th>
+                            <th>Landline Number</th>
                             <th>Email</th>
-                            <th>Emergency Contact Name</th>
-                            <th>Emergency Contact</th>
                         </tr>
                         </thead>
-                        <tbody id="employeeTable"></tbody>
+                        <tbody ></tbody>
                     </table>
                 </div>
             </div>
