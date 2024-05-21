@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface EmployeeRepo extends JpaRepository<Employee,String> {
 
-    @Query(value = "SELECT empCode FROM employee ORDER BY empCode DESC LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT emp_code FROM employee ORDER BY emp_code DESC LIMIT 1", nativeQuery = true)
     String getLastIndex();
 
 }

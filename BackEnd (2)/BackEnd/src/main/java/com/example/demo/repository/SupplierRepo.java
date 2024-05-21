@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface SupplierRepo extends JpaRepository<Supplier,String> {
 
-
-    @Query(value = "SELECT supCode FROM supplier ORDER BY supCode DESC LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT sup_code FROM supplier ORDER BY sup_code DESC LIMIT 1", nativeQuery = true)
     String getLastIndex();
 }

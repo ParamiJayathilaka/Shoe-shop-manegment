@@ -59,9 +59,10 @@ public class EmployeeController {
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/employeeIdGenerate")
     public @ResponseBody
-    CustomDTO customerIdGenerate() {
+    CustomDTO employeeIdGenerate() {
         return employeeService.employeeIdGenerate();
     }
+
 
 
 }
