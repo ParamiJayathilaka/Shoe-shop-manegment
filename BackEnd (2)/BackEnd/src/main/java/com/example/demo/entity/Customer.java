@@ -42,4 +42,5 @@ public class Customer {
 
     private Integer loyaltyPoints;
     private Timestamp recentPurchaseDate;
+
 }

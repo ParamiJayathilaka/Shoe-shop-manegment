@@ -49,8 +49,8 @@ public class CustomerController {
     }
 
     @GetMapping("/search")
-    public List<CustomerDTO> search(@RequestParam("name") String name){
-        return customerService.searchCustomer(name);
+    public List<CustomerDTO> search(@RequestParam("code") String code){
+        return customerService.searchCustomer(code);
     }
 
 

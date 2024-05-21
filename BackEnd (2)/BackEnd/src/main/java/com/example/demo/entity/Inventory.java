@@ -2,10 +2,7 @@ package com.example.demo.entity;
 
 import com.example.demo.util.CustomerLoyaltyLevel;
 import com.example.demo.util.Gender;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +19,8 @@ public class Inventory {
     @Id
     private String itemCode ;
     private String itemDesc;
+
+    @Column(columnDefinition = "LONGTEXT")
     private String itemPicture ;
     private String category;
     private Integer size;

@@ -2,10 +2,7 @@ package com.example.demo.entity;
 
 import com.example.demo.util.AccessRole;
 import com.example.demo.util.Gender;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +18,8 @@ public class Employee {
     @Id
     private String empCode;
     private String employeeName;
+
+    @Column(columnDefinition = "LONGTEXT")
     private String employeeProfilePic;
 
     @Enumerated(EnumType.STRING)

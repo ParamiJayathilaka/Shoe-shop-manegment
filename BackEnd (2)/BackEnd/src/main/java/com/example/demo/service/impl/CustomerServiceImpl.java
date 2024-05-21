@@ -64,8 +64,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerDTO> searchCustomer(String name) {
-        return customerRepo.findByNameStartingWith(name).stream().map(customer -> mapper.map(customer, CustomerDTO.class)).toList();
+    public List<CustomerDTO> searchCustomer(String code) {
+        return customerRepo.findByNameStartingWith(code).stream().map(customer -> mapper.map(customer, CustomerDTO.class)).toList();
     }
 
     @Override
