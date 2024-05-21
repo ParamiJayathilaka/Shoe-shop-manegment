@@ -99,19 +99,23 @@ $('#btnUpdateCustomer').click(function (){
     let loyaltyPoints = $('#txtloyaltyPoints').val();
     let recentPurchaseDate = $('#txtCusPurchaseDate').val();
 
-    var inventory = {
-        itemCode:itemCode,
-        itemDesc:itemDesc,
-        itemPicture:itemPicture,
-        category:category,
-        size:size,
-        supplierCode:supplierCode,
-        supplierName:supplierName,
-        unitPriceSale:unitPriceSale,
-        unitPriceBuy:unitPriceBuy,
-        expectedProfit:expectedProfit,
-        profitMargin:profitMargin,
-        Status:Status,
+    var customer = {
+        code:code,
+        name:name,
+        email:email,
+        gender:gender,
+        contact:contact,
+        dob:dob,
+        addressLine1:addressLine1,
+        addressLine2:addressLine2,
+        addressLine3:addressLine3,
+        addressLine4:addressLine4,
+        addressLine5:addressLine5,
+        addressLine6:addressLine6,
+        loyaltyDate:loyaltyDate,
+        loyaltyLevel:loyaltyLevel,
+        loyaltyPoints:loyaltyPoints,
+        recentPurchaseDate:recentPurchaseDate
 
     }
 
@@ -153,114 +157,84 @@ $('#btnDeleteCustomer').click(function () {
 });
 
 
-////////////getall////////
-
-// function loadAllCustomer() {
-//     $("#customerTable").empty();
-//     // Set purchaseDate field to current date and time
-//     $('#purchaseDate').val(new Date().toISOString().slice(0, 19).replace('T', ' '));
+// ////////////getall////////
 //
-//     $.ajax({
-//         url:  "http://localhost:8080/customer",
-//         method: "GET",
-//         dataType: "json",
-//         success: function (res) {
-//             for (let i of res.data) {
-//                 let code = i.code;
-//                 let name = i.name;
-//                 let email = i.email;
-//                 let contact = i.contact;
-//                 let dob = i.dob;
-//                 let addressLine1 = i.addressLine1;
-//                 let addressLine2 = i.addressLine2;
-//                 let addressLine3 = i.addressLine3;
-//                 let addressLine4 = i.addressLine4;
-//                 let addressLine5 = i.addressLine5;
-//                 let addressLine6 = i.addressLine6;
-//                 let loyaltyDate = i.loyaltyDate;
-//                 let loyaltyLevel = i.loyaltyLevel;
-//                 let State = i.State;
-//                 let recentPurchaseDate = i.recentPurchaseDate;
-//
-//
-//
-//                 // let addressColumn = `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
-//
-//                 let row = `<tr><td>${code}</td><td>${name}</td><td>${email}</td><td>${contact}</td><td>${dob}</td><td>${addressLine1}</td><td>${addressLine2}</td><td>${addressLine3}</td><td>${addressLine4}</td><td>${addressLine5}</td><td>${addressLine6}</td><td>${loyaltyDate}</td><td>${loyaltyLevel}</td><td>${State}</td><td>${recentPurchaseDate}</td></tr>`;
-//                 $("#customerTable").append(row);
-//             }
-//             // blindClickEventsC();
-//             generateCustomerID();
-//             // setTextFieldValuesC("", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
-//             console.log(res.message);
-//         },
-//         error: function (error) {
-//             let message = JSON.parse(error.responseText).message;
-//             console.log(message);
-//         }
-//     });
-// }
-
-// function loadAllCustomer() {
-//     $("#customerTable").empty();
-//
-//     // Set purchaseDate field to current date and time
-//     $('#purchaseDate').val(new Date().toISOString().slice(0, 19).replace('T', ' '));
+// function getAll() {
+//     $('#customerTable tbody').empty();
 //
 //     $.ajax({
 //         url: "http://localhost:8080/customer/getAllCustomers",
 //         method: "GET",
-//         dataType: "json",
-//         success: function (res) {
-//             res.data.forEach(customer => {
-//                 const {
-//                     code,
-//                     name,
-//                     email,
-//                     contact,
-//                     dob,
-//                     addressLine1,
-//                     addressLine2,
-//                     addressLine3,
-//                     addressLine4,
-//                     addressLine5,
-//                     addressLine6,
-//                     loyaltyDate,
-//                     loyaltyLevel,
-//                     State,
-//                     recentPurchaseDate
-//                 } = customer;
-//
+//         success: function (resp) {
+//             for (const customer of resp) {
 //                 let row = `<tr>
-//                     <td>${code}</td>
-//                     <td>${name}</td>
-//                     <td>${email}</td>
-//                     <td>${contact}</td>
-//                     <td>${dob}</td>
-//                     <td>${addressLine1}</td>
-//                     <td>${addressLine2}</td>
-//                     <td>${addressLine3}</td>
-//                     <td>${addressLine4}</td>
-//                     <td>${addressLine5}</td>
-//                     <td>${addressLine6}</td>
-//                     <td>${loyaltyDate}</td>
-//                     <td>${loyaltyLevel}</td>
-//                     <td>${State}</td>
-//                     <td>${recentPurchaseDate}</td>
-//                 </tr>`;
+//                                 <td>${customer.code}</td>
+//                                 <td>${customer.name}</td>
+//                                 <td>${customer.email}</td>
+//                                 <td>${customer.gender}</td>
+//                                 <td>${customer.contact}</td>
+//                                 <td>${customer.dob}</td>
+//                                 <td>${customer.addressLine1}</td>
+//                                 <td>${customer.addressLine2}</td>
+//                                 <td>${customer.addressLine3}</td>
+//                                 <td>${customer.addressLine4}</td>
+//                                 <td>${customer.addressLine5}</td>
+//                                 <td>${customer.addressLine6}</td>
+//                                 <td>${customer.loyaltyDate}</td>
+//                                 <td>${customer.loyaltyLevel}</td>
+//                                 <td>${customer.loyaltyPoints}</td>
+//                                 <td>${customer.recentPurchaseDate}</td>
+//                             </tr>`;
 //
-//                 $("#customerTable").append(row);
-//             });
-//
-//             generateCustomerID();
-//             console.log(res.message);
+//                 $('#customerTable tbody').append(row);
+//             }
+//             bindClickEvents();
 //         },
 //         error: function (error) {
-//             let message = error.responseJSON ? error.responseJSON.message : "An error occurred";
-//             console.log(message);
+//             console.log("Error: ", error);
 //         }
 //     });
 // }
-
+//
+// function bindClickEvents() {
+//     $('#customerTable tbody>tr').click(function () {
+//         let code = $(this).children(':nth-child(1)').text();
+//         let name = $(this).children(':nth-child(2)').text();
+//         let email = $(this).children(':nth-child(3)').text();
+//         let gender = $(this).children(':nth-child(4)').text();
+//         let contact = $(this).children(':nth-child(6)').text();
+//         let dob = $(this).children(':nth-child(7)').text();
+//         let addressLine1 = $(this).children(':nth-child(8)').text();
+//         let addressLine2 = $(this).children(':nth-child(6)').text();
+//         let addressLine3 = $(this).children(':nth-child(7)').text();
+//         let addressLine4 = $(this).children(':nth-child(8)').text();
+//         let addressLine5 = $(this).children(':nth-child(9)').text();
+//         let addressLine6 = $(this).children(':nth-child(10)').text();
+//         let loyaltyDate = $(this).children(':nth-child(11)').text();
+//         let loyaltyLevel = $(this).children(':nth-child(12)').text();
+//         let loyaltyPoints = $(this).children(':nth-child(13)').text();
+//         let recentPurchaseDate = $(this).children(':nth-child(14)').text();
+//
+//         $('#cusId').val(code);
+//         $('#txtCusName').val(name);
+//         $('#txtEmail').val(email);
+//         $('#txtGender').val(gender);
+//         $('#txtContact').val(contact);
+//         $('#txtDob').val(dob);
+//         $('#txtAddress1').val(addressLine1);
+//         $('#txtAddress2').val(addressLine2);
+//         $('#txtAddress3').val(addressLine3);
+//         $('#txtAddress4').val(addressLine4);
+//         $('#txtAddress5').val(addressLine5);
+//         $('#txtAddress6').val(addressLine6);
+//         $('#txtloyaltyDate').val(loyaltyDate);
+//         $('#txtloyaltyLevel').val(loyaltyLevel);
+//         $('#txtloyaltyPoints').val(loyaltyPoints);
+//         $('#txtCusPurchaseDate').val(recentPurchaseDate);
+//
+//
+//
+//     });
+// }
 
 

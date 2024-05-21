@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assest/boostrap/css/styles.css">
+    <!--    <link rel="stylesheet" href="../assest/sweetalert2-11.6.16/sweetalert2.css">-->
 
-
-    <nav class="navbar navbar-expand-lg navbar-light shadow-lg posNavi position-relative rounded-bottom" style="background-color: black">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg posNavi position-relative rounded-bottom" style="background-color: #000000">
         <div class="container-fluid" >
 
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
@@ -24,12 +26,8 @@
                     <li class="nav-item" id="itemBtn">
                         <a class="nav-link" href="Inventory.html" style="color: #ece9e9">Items</a>
                     </li>
-
-                    <li class="nav-item" id="EmployeeBtn">
-                        <a class="nav-link" href="Employee.html" style="color: #ece9e9">Employee   </a>
-                    </li>
                     <li class="nav-item" id="orderBtn">
-                        <a class="nav-link" href="orders.html" style="color: #ece9e9">Orders</a>
+                        <a class="nav-link" href="orders.html" style="color: #ece9e9">Supplier</a>
                     </li>
                     <li class="nav-item" id="orderDetailsBtn">
                         <a class="nav-link" href="orderDetails.html" style="color: #ece9e9">Order Details</a>
@@ -47,232 +45,171 @@
             </div>
         </div>
     </nav>
-    <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
-    <script src="../assest/boostrap/js/app.js"></script>
-    <script src="../assest/boostrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/EmployeeController.js"></script>
+
 
 
 </head>
 <body>
-<main class="container-fluid" id="CustomerSection" style="background-color: #acb3b3">
+<main class="container-fluid" id="CustomerSection" style="background-color: #454545">
     <!-- Customer Header Start -->
     <div class="container d-flex flex-grow-1 flex-column">
         <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
-            <h2  id="H1-3" style="font-family: 'Arial Rounded MT Bold',serif " class="text-primary"><i class="bi bi-people" ></i> Employee
+            <h2  id="H1-3" style="color: #050505 "  ><i class="bi bi-people" ></i> Supplier
             </h2>
         </div>
     </div>
     <!-- Customer Header End -->
 
     <!-- Customer Header Section Start -->
-    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #979393">
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #262626">
         <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
-            <h6 id="H6" style="color: #ece9e9">Home > Item</h6>
-            <hr>
+            <h6 id="H6" style="color: #ffffff">Home > Supplier</h6>
+            <hr style="color: #ffffff">
         </div>
         <!-- Customer Header Section End -->
 
 
+
+
+        <!-- Customer Details Section Start -->
+        <div class="row justify-content-around " style="height: auto"></div>
         <section>
+            <!-- Customer Details Search Section Start -->
+            <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 sectionBorder justify-content-lg-center"
+                 style="background-color: #fffdfd ;height: max-content ">
+                <h4 class="text-center p-2 text-light rounded-3" style="background: #050505">Manage Supplier</h4>
+            </div>
 
-            <!-- Customer Details Section Start -->
-            <div class="row justify-content-around " style="height: auto"></div>
-            <section>
-                <!-- Customer Details Search Section Start -->
-                <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 sectionBorder justify-content-lg-start"
-                     style="background-color: #9a4242;height: max-content ">
-                    <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Employee</h4>
-                </div>
+            <div class="mb-3 ms-3 me-3 mt-3 ">
+                <label class="fw-bold" for="searchEmpId" style="color: #ece9e9">Search Supplier :</label>
+                <!--                    class="form-control "-->
+                <input  id="searchEmpId" placeholder="Input Name/NIC/Tp Here" type="search">
+            </div>
 
-                <div class="mb-3 ms-3 me-3 mt-3 ">
-                    <label class="fw-bold" for="searchCusId" style="color: #ece9e9">Search Customer :</label>
-                    <!--                    class="form-control "-->
-                    <input  id="searchCusId" placeholder="Input Name/NIC/Tp Here" type="search">
-                </div>
+            <form id="customerForm">
+                <section>
 
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                                                <div class="mb-3 ms-3 me-3 mt-3 ">
-                                                    <label class="fw-bold" for="txtEmpCode">Employee code  :</label>
-                                                    <input class="form-control" id="txtEmpCode" type="text" name="id">
-                                                    <span class="control-error"></span>
-                                                </div>
+                    <div class="row g-3" style="color: #2c3136">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupplierCode" style="color: #ece9e9">Supplier Code  :</label>
+                                <input class="form-control" id="txtSupplierCode" type="text" name="id" style="background-color: #485757; color: white">
+                                <span class="control-error"></span>
+                            </div>
 
-<!--                        <div class="mb-3 ms-3 me-3 mt-3">-->
-<!--                            <label for="txtEmpCode">Employee Code</label>-->
-<!--                            <input type="text" class="form-control" id="txtEmpCode" name="employeeCode">-->
-<!--                            <span class="control-error"></span>-->
-<!--                        </div>-->
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpName">Employee name  :</label>
-                            <input class="form-control" id="txtEmpName" type="text" name="name">
-                            <span class="control-error"></span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpProfilePic">Employee Profile Pic  :</label>
-                            <input class="form-control" id="txtEmpProfilePic" type="text" name="gender">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpGender">Gender :</label>
-                            <select class="form-control" id="txtEmpGender" name="gender">
-                                <option value="MALE">MALE</option>
-                                <option value="FEMALE">FEMALE</option>
-                                <option value="OTHERS">OTHERS</option>
-                            </select>
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpStatus">Status :</label>
-                            <input class="form-control" id="txtEmpStatus" type="text" name="level">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpDesignation">Designation  :</label>
-                            <input class="form-control" id="txtEmpDesignation" type="text" name="points">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpAccessRole">Access Role  :</label>
-                            <select class="form-control" id="txtEmpAccessRole" name="accessRole">
-                                <option value="MALE">ADMIN</option>
-                                <option value="FEMALE">USER</option>
-
-                            </select>
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpDob">Date Of Birth :</label>
-                            <input class="form-control" id="txtEmpDob" type="date" name="buildingNo">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpDateOfJoin">Date of Join :</label>
-                            <input class="form-control" id="txtEmpDateOfJoin" type="date" name="lane">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpAttachedBranch">Attached Branch  :</label>
-                            <input class="form-control" id="txtEmpAttachedBranch" type="text" name="City">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpBuildingNo">Building No :</label>
-                            <input class="form-control" id="txtEmpBuildingNo" type="text" name="State">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpLane">Lane :</label>
-                            <!--                         //   <input class="form-control" id="txtEmpPostalCode" type="text" name="postalCode">-->
-                            <input type="text" id="txtEmpLane" class="form-control" placeholder="lane"  style="background-color: #334344; color: white">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpCity">City :</label>
-                            <input class="form-control" id="txtEmpCity" type="text" name="addressLine3">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpState">State :</label>
-                            <input class="form-control" id="txtEmpState" type="text" name="addressLine4">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpPostalCode">Postal Code :</label>
-                            <input class="form-control" id="txtEmpPostalCode" type="text" name="addressLine5">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpContact">Mob.Num Or Contact :</label>
-                            <input class="form-control" id="txtEmpContact" type="text" name="addressLine6">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpEmail">Email :</label>
-                            <input class="form-control" id="txtEmpEmail" type="text" name="email">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpEmergencyGuardian">Emergency Guardian :</label>
-                            <input class="form-control" id="txtEmpEmergencyGuardian" type="text" name="loyaltyDate">
-                            <span class="control-error"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3" style="color: #050505">
-                    <div class="col">
-                        <div class="mb-3 ms-3 me-3 mt-3 ">
-                            <label class="fw-bold" for="txtEmpEmergencyContact">Emergency Contact :</label>
-                            <input class="form-control" id="txtEmpEmergencyContact" type="text" name="loyaltyDate">
-                            <span class="control-error"></span>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3">
+                                <label class="fw-bold" for="txtSupplierName" style="color: #ece9e9"> Supplier Name  :</label>
+                                <input class="form-control" id="txtSupplierName" type="text" name="name" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
                         </div>
                     </div>
 
-                </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupCategory" style="color: #ece9e9">Category :</label>
+                                <select class="form-control" id="txtSupCategory" name="Category" type="text" style="background-color: #334344; color: white">
+                                    <option value="LOCAL">LOCAL</option>
+                                    <option value="INTERNATIONAL">INTERNATIONAL</option>
+
+                                </select>
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="col">
+                                <div class="mb-3 ms-3 me-3 mt-3 ">
+                                    <label class="fw-bold" for="txtSupBuildingNo" style="color: #ece9e9">Building No :</label>
+                                    <input class="form-control" id="txtSupBuildingNo" type="text" name="State" style="background-color: #334344; color: white">
+                                    <span class="control-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupLane" style="color: #ece9e9">Lane :</label>
+                                <input type="text" id="txtSupLane" class="form-control" placeholder="lane"  style="background-color: #334344; color: #ffffff; font-style: italic;">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
 
-            </section>
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupCity" style="color: #ece9e9">City :</label>
+                                <input class="form-control" id="txtSupCity" type="text" name="addressLine3" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupState" style="color: #ece9e9">State :</label>
+                                <input class="form-control" id="txtSupState" type="text" name="addressLine4" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupPostalCode" style="color: #ece9e9">Postal Code :</label>
+                                <input class="form-control" id="txtSupPostalCode" type="text" name="addressLine5" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupCountry" style="color: #ece9e9">Country :</label>
+                                <input class="form-control" id="txtSupCountry" type="text" name="addressLine6" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupMobileNumber" style="color: #ece9e9">Mobile Number :</label>
+                                <input class="form-control" id="txtSupMobileNumber" type="text" name="MobileNumber" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupLandlineNumber" style="color: #ece9e9">Landline Number:</label>
+                                <input class="form-control" id="txtSupLandlineNumber" type="text" name="LandlineNumber" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtSupEmail" style="color: #ece9e9">Email :</label>
+                                <input class="form-control" id="txtSupEmail" type="email" name="email" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+            </form>
 
 
 
@@ -289,17 +226,16 @@
 
 
         <div class="m-4">
-            <!--            <button class="btn btn-success mt-2 m-2" id="btnSaveEmployee" type="button"> Save-->
-            <button type="button" class="btn btn-primary" id="btnSaveEmployee">Save</button>
+            <button type="button" class="btn btn-primary" id="btnSaveSupplier">Save</button>
             </button>
 
-            <button class="btn btn-warning mt-2 m-2" id="btnUpdateEmployee" type="button">Update
+            <button class="btn btn-warning mt-2 m-2" id="btnUpdateSupplier" type="button">Update
             </button>
 
-            <button class="btn btn-danger mt-2 m-2" id="btnDeleteEmployee" type="button">Delete
+            <button class="btn btn-danger mt-2 m-2" id="btnDeleteSupplier" type="button">Delete
             </button>
 
-            <button class="btn bg-light mt-2 m-2" id="btnGetAllEmployee" type="button">Get All
+            <button class="btn bg-light mt-2 m-2" id="btnGetAllSupplier" type="button">Get All
             </button>
 
         </div>
@@ -331,8 +267,6 @@
                             <th>Email</th>
                             <th>Emergency Contact Name</th>
                             <th>Emergency Contact</th>
-
-
                         </tr>
                         </thead>
                         <tbody id="employeeTable"></tbody>
@@ -346,15 +280,9 @@
 
 </main>
 
-<!--<script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>-->
-<!--<script src="../js/EmployeeController.js"></script>-->
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../js/EmployeeController.js"></script>
-
-
 <script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>
+<script src="../js/SupplierController.js"></script>
+
 
 </body>
 </html>
