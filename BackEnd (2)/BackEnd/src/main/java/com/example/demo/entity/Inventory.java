@@ -9,27 +9,50 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "inventory")
 public class Inventory {
 
     @Id
-    private String itemCode ;
-    private String itemDesc;
+    @Column(name = "item_code", nullable = false)
+    private String itemCode;
+
+    private String itemDescription;
 
     @Column(columnDefinition = "LONGTEXT")
-    private String itemPicture ;
+    private String itemPicture;
+
+
     private String category;
+
+
     private Integer size;
-    private String supplierCode ;
-    private String supplierName ;
-    private double unitPriceSale ;
-    private double unitPriceBuy;
-    private double expectedProfit ;
-    private double profitMargin;
-    private Integer Status ;
+
+    @ManyToOne
+    @JoinColumn(name = "supplier_code" , referencedColumnName = "supplier_code")
+    private Supplier supplier;
+
+    private String supplierName;
+
+    private Double unitPriceSale;
+
+    private Double unitPriceBuy;
+
+    private Double expectedProfit;
+
+    private Double profitMargin;
+
+    private String status;
+
+    private Integer quantity;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "inventory")
+    private List<SalesDetails> salesDetails = new ArrayList<>();
 
 }
