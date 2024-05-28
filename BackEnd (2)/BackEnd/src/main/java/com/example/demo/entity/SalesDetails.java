@@ -1,39 +1,37 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Sales_Details")
-
 public class SalesDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int salesId;
+    @EmbeddedId
+    private SalesDetailsPK salesDetailsPK ;
 
-    private String itemDescription;
-
-    private Integer size;
-
-    private Double unitPriceSale;
-
-    private int quantity;
+    private String itemName;
+    private Double unitPrice;
+    private Integer itemQty;
 
     @ManyToOne
-    @JoinColumn(name = "item_code" , referencedColumnName = "item_code")
-    private Inventory inventory;
+    @JoinColumn(name = "order_id",
+            referencedColumnName = "order_id",insertable = false,
+            updatable = false)
+    private Sales order_id;
 
     @ManyToOne
-    @JoinColumn(name = "order_no" , referencedColumnName = "order_no")
-    private Sale sales;
+    @JoinColumn(name = "item_code",
+            referencedColumnName = "itemCode",
+            insertable = false,
+            updatable = false)
+    private Inventory item_code;
 
 }

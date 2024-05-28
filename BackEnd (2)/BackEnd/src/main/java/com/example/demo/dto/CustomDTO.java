@@ -11,14 +11,21 @@ import lombok.ToString;
 @ToString
 public class CustomDTO {
 
-    private String value;
-    private int count;
+    private String orderId;
+    private String itemCode;
+    private String size;
+    private Integer qty;
+    private Double unitTotalPrice;
+    private Integer arrayLength;
 
-    public CustomDTO(String lastIndex) {
-        this.value=lastIndex;
-    }
+//    private String value;
+//    private int count;
+//    public CustomDTO(String lastIndex) {
+//        this.value=lastIndex;
+//    }
+//    public CustomDTO(int count) {
+//        this.count=count;
+//    }
 
-    public CustomDTO(int count) {
-        this.count=count;
-    }
+
 }

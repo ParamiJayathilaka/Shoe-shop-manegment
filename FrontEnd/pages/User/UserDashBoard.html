@@ -2,9 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Template</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/bootstrap/css/styles.css">
+
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    .wrapper {
+      display: flex;
+      flex: 1;
+    }
+    .sidebar {
+      min-width: 250px;
+      background-color: #343a40;
+      color: white;
+      padding: 20px;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+    .header {
+      background-color: #f8f9fa;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .table td, .table th {
+      font-size: 1.25rem; /* Larger text */
+    }
+  </style>
 </head>
 <body>
-$END$
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav class="sidebar d-flex flex-column" style="background-color: #1c282d">
+
+    <img src="../assets/image/shoename.png"  height="90" width="150"/>
+
+    <hr style="color: #ffffff;  size: B5 ">
+
+    <h4 class="text-center"  style="font-style: italic; color: #04c5ff"><b>IF THE SHOE FITS, BUY IT !</b></h4>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <hr style="color: #ffffff;  ">
+
+      <li class="nav-item" id="customerBtn">
+        <a class="nav-link" href="Customer.html" style="color: #fffefe; font-size: 20px; font-style: oblique"><ul>Customer</ul></a>
+      </li>
+      <li class="nav-item" id="itemBtn">
+        <a class="nav-link" href="Inventory.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Items</ul></a>
+      </li>
+      <li class="nav-item" id="orderBtn">
+        <a class="nav-link" href="Employee.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Employee</ul></a>
+      </li>
+      <li class="nav-item" id="orderDetailsBtn">
+        <a class="nav-link" href="Supplier.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Supplier</ul></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content" style="background-color: #2a3d42;">
+    <!-- Header -->
+    <div class="header" style="background-color: #5dd0ef;">
+      <h1>Dashboard</h1>
+    </div>
+
+    <!-- Table Section -->
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-body" style="background-color: #00cbd0">
+              <h5 class="card-title">Item Details</h5>
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Item Name</th>
+                    <th>Quantity Sold</th>
+                    <th>Price</th>
+                    <th>Total Sales</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Item 1</td>
+                    <td>100</td>
+                    <td>$10</td>
+                    <td>$1000</td>
+                  </tr>
+                  <tr>
+                    <td>Item 2</td>
+                    <td>150</td>
+                    <td>$15</td>
+                    <td>$2250</td>
+                  </tr>
+                  <tr>
+                    <td>Item 3</td>
+                    <td>200</td>
+                    <td>$20</td>
+                    <td>$4000</td>
+                  </tr>
+                  <!-- Add more rows as needed -->
+                  </tbody>
+                </table>
+              </div>
+              <a href="#" class="btn btn-primary">Go to item Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

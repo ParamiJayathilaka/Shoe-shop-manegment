@@ -1,10 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assest/boostrap/css/styles.css">
+    <!--    <link rel="stylesheet" href="../assest/sweetalert2-11.6.16/sweetalert2.css">-->
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg posNavi position-relative rounded-bottom" style="background-color: #000000">
+        <div class="container-fluid" >
+            <img src="../../assest/image/shoename.png" height="67" width="150"/>
+
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler" data-bs-target="#navbarSupportedContent"
+                    data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" id="homeBtn" >
+                        <a aria-current="page" class="nav-link active" href="AdminDashBoard.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Home</ul></a>
+                    </li>
+                    <li class="nav-item" id="customerBtn">
+                        <a class="nav-link" href="Customer.html" style="color: #fffefe; font-size: 20px; font-style: oblique"><ul>Customer</ul></a>
+                    </li>
+                    <li class="nav-item" id="itemBtn">
+                        <a class="nav-link" href="Inventory.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Items</ul></a>
+                    </li>
+                    <li class="nav-item" id="orderBtn">
+                        <a class="nav-link" href="Employee.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Employee</ul></a>
+                    </li>
+                    <li class="nav-item" id="orderDetailsBtn">
+                        <a class="nav-link" href="Supplier.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Supplier</ul></a>
+                    </li>
+
+                </ul>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-primary btn-m" type="button" style="color: #ece9e9"><i class="fa-solid fa-user-plus"></i>
+                        Sign Up
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" style="color: #ece9e9"><i
+                            class="fa-solid fa-right-from-bracket"></i> Log Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <link rel="stylesheet" href="../../assest/boostrap/css/bootstrap.min.css">
+    <script src="../../assest/boostrap/js/app.js"></script>
+    <script src="../../assest/boostrap/js/jquery-3.7.1.min.js"></script>
+
+
 </head>
 <body>
-$END$
+<main class="container-fluid" id="CustomerSection" style="background-color: #454545">
+    <!-- Customer Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2  id="H1-3" style="color: #00c1ff; font-style: italic; font-size: 40px; "  ><i class="bi bi-people" ></i> <b>Employee</b>
+            </h2>
+        </div>
+    </div>
+    <!-- Customer Header End -->
+
+    <!-- Customer Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #262626">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H6" style="color: #ffffff">Home > Employee</h6>
+            <hr style="color: #ffffff">
+        </div>
+        <!-- Customer Header Section End -->
+
+
+
+
+        <!-- Customer Details Section Start -->
+        <div class="row justify-content-around " style="height: auto"></div>
+        <section>
+            <!-- Customer Details Search Section Start -->
+            <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 sectionBorder justify-content-lg-center"
+                 style="background-color: #fffdfd ;height: max-content ">
+                <h4 class="text-center p-2 text-light rounded-3" style="background: #050505">Manage Employee</h4>
+            </div>
+
+            <div class="mb-3 ms-3 me-3 mt-3 ">
+                <label class="fw-bold" for="searchEmpId" style="color: #ece9e9">Search Employee :</label>
+                <!--                    class="form-control "-->
+                <input  id="searchEmpId" placeholder="Input Name/NIC/Tp Here" type="search">
+            </div>
+
+
+
+
+        </section>
+        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
+            <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">
+                <div class="customerTableDiv overflow-auto" style="height: 270px;">
+                    <table  id="employeeTable" class="table table-success table-striped table-bordered table-hover">
+                        <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                        <tr>
+                            <th>Employee code</th>
+                            <th>Employee Name</th>
+                            <th>Employee Profile Pic</th>
+                            <th>Gender</th>
+                            <th>Status</th>
+                            <th>Designation</th>
+                            <th>Access Role</th>
+                            <th>DOB</th>
+                            <th>Date of Join </th>
+                            <th>Attached Branch </th>
+                            <th>Building no</th>
+                            <th>Lane</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Postal Code</th>
+                            <th>Contact Number</th>
+                            <th>Email</th>
+                            <th>Emergency Contact Name</th>
+                            <th>Emergency Contact</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- View Customer Details Table End -->
+    </div>
+
+
+</main>
+
+<script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>
+<script src="../js/EmployeeController.js"></script>
+
+
 </body>
 </html>

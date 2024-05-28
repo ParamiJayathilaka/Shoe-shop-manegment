@@ -1,10 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assest/boostrap/css/styles.css">
+    <!--    <link rel="stylesheet" href="../assest/sweetalert2-11.6.16/sweetalert2.css">-->
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg posNavi position-relative rounded-bottom" style="background-color: #000000">
+        <div class="container-fluid" >
+
+            <img src="../assest/image/shoename.png" height="67" width="150"/>
+
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler" data-bs-target="#navbarSupportedContent"
+                    data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" id="homeBtn" >
+                        <a aria-current="page" class="nav-link active" href="AdminDashBoard.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Home</ul></a>
+                    </li>
+                    <li class="nav-item" id="customerBtn">
+                        <a class="nav-link" href="Customer.html" style="color: #fffefe; font-size: 20px; font-style: oblique"><ul>Customer</ul></a>
+                    </li>
+                    <li class="nav-item" id="itemBtn">
+                        <a class="nav-link" href="Inventory.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Items</ul></a>
+                    </li>
+                    <li class="nav-item" id="orderBtn">
+                        <a class="nav-link" href="Employee.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Employee</ul></a>
+                    </li>
+                    <li class="nav-item" id="orderDetailsBtn">
+                        <a class="nav-link" href="Supplier.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Supplier</ul></a>
+                    </li>
+
+
+                </ul>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-primary btn-m" type="button" style="color: #ece9e9"><i class="fa-solid fa-user-plus"></i>
+                        Sign Up
+                    </button>
+                    <button class="btn btn-outline-secondary" type="button" style="color: #ece9e9"><i
+                            class="fa-solid fa-right-from-bracket"></i> Log Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
 </head>
 <body>
-$END$
+<main class="container-fluid" id="CustomerSection" style="background-color: #454545">
+    <!-- Customer Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2  id="H1-3" style="color: #00c1ff; font-style: italic; font-size: 40px; "  ><i class="bi bi-people" ></i> <b> Customer</b>
+            </h2>
+        </div>
+    </div>
+    </div>
+    <!-- Customer Header End -->
+
+    <!-- Customer Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column sectionBorder" style="background-color: #262626">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H6" style="color: #ffffff">Home > Customer</h6>
+            <hr style="color: #ffffff">
+        </div>
+        <!-- Customer Header Section End -->
+        <!-- Customer Details Section Start -->
+        <div class="row justify-content-around " style="height: auto"></div>
+        <section>
+            <!-- Customer Details Search Section Start -->
+            <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 sectionBorder justify-content-lg-center"
+                 style="background-color: #19bfbf ;height: max-content ">
+                <h4 class="text-center p-2 text-light rounded-3" style="background: #000000">Manage Customer</h4>
+            </div>
+
+            <div class="mb-3 ms-3 me-3 mt-3 ">
+                <label class="fw-bold" for="searchCusId" style="color: #ffffff">Search Customer :</label>
+                <!--                    class="form-control "-->
+                <input  id="searchCusId" placeholder="Input Name/NIC/Tp Here" type="search">
+            </div>
+
+            <form id="customerForm">
+                <section>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col" >
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="cusId" style="color: #ffffff">Customer Code :</label>
+                                <input class="form-control" id="cusId" type="text" name="code" style="background-color: #334344; color: white">
+                                <span class="control-error" ></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtCusName" style="color: #ffffff">Customer Name :</label>
+                                <input class="form-control" id="txtCusName" type="text" name="name" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtEmail" style="color: #ffffff">Email :</label>
+                                <input class="form-control" id="txtEmail" type="text" name="email" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtGender" style="color: #ffffff">Gender</label>
+                                <select class="form-control" id="txtGender" name="gender" style="background-color: #334344; color: white">
+                                    <option value="MALE">MALE</option>
+                                    <option value="FEMALE">FEMALE</option>
+                                    <option value="OTHERS">OTHERS</option>
+                                </select>
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtContact" style="color: #ffffff">Contact :</label>
+                                <input class="form-control" id="txtContact" type="text" name="contact" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtDob" style="color: #ffffff">DOB :</label>
+                                <input class="form-control" id="txtDob" type="date" name="dob" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtAddress1" style="color: #ffffff">Building No :</label>
+                                <input class="form-control" id="txtAddress1" type="text" name="addressLine1" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtAddress2" style="color: #ffffff">Lane :</label>
+                                <input class="form-control" id="txtAddress2" type="text" name="addressLine2" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtAddress3" style="color: #ffffff">City :</label>
+                                <input class="form-control" id="txtAddress3" type="text" name="addressLine3" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtAddress4" style="color: #ffffff">State :</label>
+                                <input class="form-control" id="txtAddress4" type="text" name="addressLine4" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtAddress5" style="color: #ffffff">Postal Code :</label>
+                                <input class="form-control" id="txtAddress5" type="text" name="addressLine5" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtAddress6" style="color: #ffffff">Country :</label>
+                                <input class="form-control" id="txtAddress6" type="text" name="addressLine6" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtloyaltyDate" style="color: #ffffff">loyalty Date :</label>
+                                <input class="form-control" id="txtloyaltyDate" type="date" name="loyaltyDate" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtloyaltyLevel" style="color: #ffffff">loyalty Level :</label>
+                                <select class="form-control" id="txtloyaltyLevel" name="loyaltyLevel" style="background-color: #334344; color: white">
+                                    <option value="GOLD">GOLD</option>
+                                    <option value="SILVER">SILVER</option>
+                                    <option value="BRONZE">BRONZE</option>
+                                    <option value="NEW">NEW</option>
+
+                                </select>
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3" style="color: #050505">
+
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtloyaltyPoints" style="color: #ffffff"> loyalty Point  :</label>
+                                <input class="form-control" id="txtloyaltyPoints" type="text" name="State" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="mb-3 ms-3 me-3 mt-3 ">
+                                <label class="fw-bold" for="txtCusPurchaseDate" style="color: #ffffff">Purchase Date :</label>
+                                <input class="form-control" id="txtCusPurchaseDate" type="date" name="recentPurchaseDate" style="background-color: #334344; color: white">
+                                <span class="control-error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </form>
+
+
+
+            <!--        &lt;!&ndash; Customer Details Search Section End &ndash;&gt;-->
+
+            <!--        &lt;!&ndash; Customer Details Search Section Start &ndash;&gt;-->
+
+            <!--        &lt;!&ndash; Customer Details Search Section End &ndash;&gt;-->
+
+            <!--    </div>-->
+
+
+        </section>
+
+
+        <div class="m-4">
+
+            <button type="button" class="btn btn-outline-primary mt-2 m-2" id="btnSaveCustomer">Save</button>
+            </button>
+
+            <button class="btn btn-outline-warning mt-2 m-2 " id="btnUpdateCustomer" type="button">Update
+            </button>
+
+            <button class="btn btn-outline-danger mt-2 m-2" id="btnDeleteCustomer" type="button">Delete
+            </button>
+
+        </div>
+        <!-- Customer Details Section End -->
+
+        <!-- View Customer Details Table Start -->
+        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
+            <div class="col-11 justify-content-around sectionBorder" style="height: 290px; background: white">
+                <div class="customerTableDiv overflow-auto" style="height: 270px;">
+                    <table id="customerTable" class="table table-success table-striped table-bordered table-hover">
+                        <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                        <tr>
+                            <th>Customer Code</th>
+                            <th>Customer Name</th>
+                            <th>Email</th>
+                            <th>gender</th>
+                            <th>contact</th>
+                            <th>dob</th>
+                            <th>Building No</th>
+                            <th>Lane</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Postal Code</th>
+                            <th>Country</th>
+                            <th>loyaltyDate</th>
+                            <th>loyaltyLevel </th>
+                            <th>loyaltyPoints </th>
+                            <th>recentPurchaseDate </th>
+
+                        </tr>
+                        </thead>
+                        <tbody ></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- View Customer Details Table End -->
+    </div>
+
+
+</main>
+
+<script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>
+<script src="../js/CustomerController.js"></script>
+
 </body>
 </html>

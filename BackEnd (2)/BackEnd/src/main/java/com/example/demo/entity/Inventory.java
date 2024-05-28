@@ -20,39 +20,25 @@ import java.util.List;
 public class Inventory {
 
     @Id
-    @Column(name = "item_code", nullable = false)
     private String itemCode;
-
     private String itemDescription;
-
-    @Column(columnDefinition = "LONGTEXT")
     private String itemPicture;
-
-
     private String category;
-
-
-    private Integer size;
+//    private Integer size;
+    private Integer size6;
+    private Integer size8;
+    private Integer size10;
+    private Integer size11;
+    private String supplierName;
+    private Double unitPriceSale;
+    private Double unitPriceBuy;
+    private Double expectedProfit;
+    private Double profitMargin;
 
     @ManyToOne
     @JoinColumn(name = "supplier_code" , referencedColumnName = "supplier_code")
     private Supplier supplier;
 
-    private String supplierName;
-
-    private Double unitPriceSale;
-
-    private Double unitPriceBuy;
-
-    private Double expectedProfit;
-
-    private Double profitMargin;
-
-    private String status;
-
-    private Integer quantity;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "inventory")
-    private List<SalesDetails> salesDetails = new ArrayList<>();
-
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "item_code")
+    private List<SalesDetails> orderDetails = new ArrayList<>();
 }
