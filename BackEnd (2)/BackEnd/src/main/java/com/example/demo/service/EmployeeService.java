@@ -15,6 +15,6 @@ public interface EmployeeService {
     List<EmployeeDTO> getAllEmployee();
     List<EmployeeDTO> searchEmployee(String name);
 
-    @ResponseBody
-    CustomDTO employeeIdGenerate();
+//    @ResponseBody
+//    CustomDTO employeeIdGenerate();
 }

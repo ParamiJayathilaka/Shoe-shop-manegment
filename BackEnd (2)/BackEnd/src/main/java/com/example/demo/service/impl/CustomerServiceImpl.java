@@ -68,9 +68,9 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepo.findByNameStartingWith(code).stream().map(customer -> mapper.map(customer, CustomerDTO.class)).toList();
     }
 
-    @Override
-    public CustomDTO customerIdGenerate() {
-        return new CustomDTO(customerRepo.getLastIndex());
-    }
+//    @Override
+//    public CustomDTO customerIdGenerate() {
+//        return new CustomDTO(customerRepo.getLastIndex());
+//    }
 
 }

@@ -56,13 +56,13 @@ public class EmployeeController {
         return employeeService.searchEmployee(name);
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/employeeIdGenerate")
-    public @ResponseBody
-    CustomDTO employeeIdGenerate() {
-        return employeeService.employeeIdGenerate();
-    }
-
-
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @GetMapping(path = "/employeeIdGenerate")
+//    public @ResponseBody
+//    CustomDTO employeeIdGenerate() {
+//        return employeeService.employeeIdGenerate();
+//    }
+//
+//
 
 }

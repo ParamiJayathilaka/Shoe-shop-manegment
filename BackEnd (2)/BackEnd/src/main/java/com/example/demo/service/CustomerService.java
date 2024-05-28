@@ -16,6 +16,6 @@ public interface CustomerService {
     List<CustomerDTO> getAllCustomers();
     List<CustomerDTO> searchCustomer(String name);
 
-    @ResponseBody
-    CustomDTO customerIdGenerate();
+//    @ResponseBody
+//    CustomDTO customerIdGenerate();
 }

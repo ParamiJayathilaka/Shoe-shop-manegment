@@ -54,11 +54,11 @@ public class CustomerController {
     }
 
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/cusIdGenerate")
-    public @ResponseBody
-    CustomDTO customerIdGenerate() {
-        return customerService.customerIdGenerate();
-    }
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @GetMapping(path = "/cusIdGenerate")
+//    public @ResponseBody
+//    CustomDTO customerIdGenerate() {
+//        return customerService.customerIdGenerate();
+//    }
 
 }

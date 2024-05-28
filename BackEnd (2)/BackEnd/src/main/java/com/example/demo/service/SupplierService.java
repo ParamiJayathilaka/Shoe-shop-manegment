@@ -14,6 +14,6 @@ public interface SupplierService {
     List<SupplierDTO> getAllSupplier();
     List<SupplierDTO> searchSupplier(String name);
 
-    @ResponseBody
-    CustomDTO supplierIdGenerate();
+//    @ResponseBody
+//    CustomDTO supplierIdGenerate();
 }

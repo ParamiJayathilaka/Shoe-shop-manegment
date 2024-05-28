@@ -9,13 +9,14 @@ import com.example.demo.repository.EmployeeRepo;
 import com.example.demo.service.EmployeeService;
 import com.example.demo.service.exseption.DuplicateRecordException;
 import com.example.demo.service.exseption.NotFoundException;
+import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Transactional
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -77,8 +78,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         return null;
     }
 
-    @Override
-    public CustomDTO employeeIdGenerate() {
-        return new CustomDTO(employeeRepo.getLastIndex());
-    }
+//    @Override
+//    public CustomDTO employeeIdGenerate() {
+//        return new CustomDTO(employeeRepo.getLastIndex());
+//    }
 }

@@ -74,9 +74,9 @@ public class InventoryServiceImpl implements InventoryService {
         return null;
     }
 
-    @Override
-    public CustomDTO inventoryIdGenerate() {
-        return new CustomDTO(inventoryRepo.getLastIndex());
-
-    }
+//    @Override
+//    public CustomDTO inventoryIdGenerate() {
+//        return new CustomDTO(inventoryRepo.getLastIndex());
+//
+//    }
 }

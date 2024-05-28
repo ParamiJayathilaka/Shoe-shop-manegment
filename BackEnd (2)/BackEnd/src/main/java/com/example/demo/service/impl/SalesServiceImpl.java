@@ -13,9 +13,13 @@ import com.example.demo.repository.SalesRepo;
 import com.example.demo.service.SalesDetailsService;
 import com.example.demo.service.SalesService;
 import com.example.demo.util.CustomerLoyaltyLevel;
+import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
+@Transactional
 public class SalesServiceImpl implements SalesService {
 
     @Autowired
