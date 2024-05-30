@@ -2,9 +2,283 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Dashboard</title>
+<!--  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">-->
+<!--  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
+  <style>
+    .sidebar {
+      min-height: 100vh;
+      background-color: #343a40;
+    }
+    .sidebar a {
+      color: #c1d1d5;
+    }
+    .main-content {
+      padding: 20px;
+    }
+    .card-icon {
+      font-size: 2rem;
+      color: #d5dfe2;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+
+
 </head>
 <body>
-$END$
+<div class="d-flex">
+  <div class="sidebar p-3">
+    <h2 class="text-primary">CREATIVE TIM</h2>
+    <nav class="nav flex-column">
+      <a class="nav-link active" href="Customer.html">Customer</a>
+      <a class="nav-link" href="Employee.html">Employee</a>
+      <a class="nav-link" href="Inventory.html">Inventory</a>
+      <a class="nav-link" href="Supplier.html">Supplier</a>
+      <a class="nav-link" href="Sale.html">Sale</a>
+
+    </nav>
+  </div>
+  <div class="main-content flex-grow-1" style="background-color: #495057">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card bg-warning text-white mb-4">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5>Used Space</h5>
+                  <h3>49/50GB</h3>
+                </div>
+                <div class="card-icon"><i class="fas fa-hdd"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-success text-white mb-4">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5>Revenue</h5>
+                  <h3>$34,245</h3>
+                </div>
+                <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-danger text-white mb-4">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5>Fixed Issues</h5>
+                  <h3>75</h3>
+                </div>
+                <div class="card-icon"><i class="fas fa-bug"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-info text-white mb-4">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5>Followers</h5>
+                  <h3>+245</h3>
+                </div>
+                <div class="card-icon"><i class="fas fa-twitter"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col-md-4" >
+          <div class="card mb-4" style="background-color: #343a40">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+              <h5 class="mb-0 text-white">Daily Sales</h5>
+              <div class="text-white" style="color: black">55% increase in today sales.</div>
+            </div>
+            <div class="card-body" >
+              <canvas id="dailySales" ></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4" style="background-color: #343a40">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+              <h5 class="mb-0 text-white">Email Subscriptions</h5>
+              <div class="text-white">Last Campaign Performance</div>
+            </div>
+            <div class="card-body">
+              <canvas id="emailSubscriptions"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4" style="background-color: #343a40">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+              <h5 class="mb-0 text-white">Completed Tasks</h5>
+              <div class="text-white">Last Campaign Performance</div>
+            </div>
+            <div class="card-body">
+              <canvas id="completedTasks"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4" style="background-color: #343a40">
+            <div class="card-header bg-transparent">
+              <h5 class="mb-0 text-white">Tasks</h5>
+            </div>
+            <div class="card-body" style="background-color: #343a40">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-white" style="background: #343a40">Create 4 Invisible User Experiences you Never Knew About</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4" style="background-color: #343a40">
+            <div class="card-header bg-transparent">
+              <h5 class="mb-0 text-white">Employees Stats</h5>
+            </div>
+            <div class="card-body text-white">
+              <table class="table table-hover text-white">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Salary</th>
+                  <th>Country</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Dakota Rice</td>
+                  <td>$36,738</td>
+                  <td>Niger</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Minerva Hooper</td>
+                  <td>$23,789</td>
+                  <td>Curaçao</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Sage Rodriguez</td>
+                  <td>$56,142</td>
+                  <td>Netherlands</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Philip Chaney</td>
+                  <td>$38,735</td>
+                  <td>Korea, South</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>
+<script src="../assest/boostrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/LoginController.js"></script>
+
+<script>
+  var ctx1 = document.getElementById('dailySales').getContext('2d');
+  var dailySalesChart = new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+      datasets: [{
+        label: 'Sales',
+        data: [12, 19, 3, 5, 2, 3, 7],
+        backgroundColor: 'rgba(76, 175, 80, 0.2)',
+        borderColor: 'rgba(76, 175, 80, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var ctx2 = document.getElementById('emailSubscriptions').getContext('2d');
+  var emailSubscriptionsChart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      datasets: [{
+        label: 'Subscriptions',
+        data: [65, 59, 80, 81, 56, 55, 40, 70, 60, 90, 50, 40],
+        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+        borderColor: 'rgba(255, 159, 64, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  var ctx3 = document.getElementById('completedTasks').getContext('2d');
+  var completedTasksChart = new Chart(ctx3, {
+    type: 'line',
+    data: {
+      labels: ['12am', '3am', '6am', '9am', '12pm', '3pm', '6pm', '9pm'],
+      datasets: [{
+        label: 'Tasks',
+        data: [5, 15, 10, 20, 30, 25, 35, 30],
+        backgroundColor: 'rgba(244, 67, 54, 0.2)',
+        borderColor: 'rgba(244, 67, 54, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+</script>
 </body>
 </html>

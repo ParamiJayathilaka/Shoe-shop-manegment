@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="MainPage/login.css">
+<!--   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <link rel="stylesheet" href="MainPage/login.css">-->
     <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
-    <script src="../assest/boostrap/js/app.js"></script>
-    <script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>
-    <script src="../assest/boostrap/js/bootstrap.bundle.min.js"></script>
+
     <style>
         .card {
             display: flex;
@@ -29,6 +27,7 @@
         }
 
     </style>
+
 
 
 </head>
@@ -60,38 +59,29 @@
                                 <div class="row">
                                     <!-- username -->
                                     <div data-mdb-input-init class="form-outline mb-4">
-                                        <label class="form-label" for="form3Example1" style="color: #ece9e9"><b>User Name </b></label>
-                                        <input type="email" id="form3Example1" class="form-control" style="background-color: #485757; color: white"/>
+                                        <label class="form-label" for="user_Name" style="color: #ece9e9"><b>User Name </b></label>
+                                        <input type="text" id="user_Name" class="form-control" style="background-color: #485757; color: white"/>
                                     </div>
                                 </div>
                                 <!-- password -->
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3"style="color: #ece9e9"><b>Password </b></label>
-                                    <input type="email" id="form3Example3" class="form-control" style="background-color: #485757; color: white"/>
+                                    <label class="form-label" for="password"style="color: #ece9e9"><b>Password </b></label>
+                                    <input type="email" id="password" class="form-control" style="background-color: #485757; color: white"/>
                                 </div>
 
                                 <!-- Submit button -->
-                                <button type="login" href ="AdminDashBoard.html" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
+                                <button type="login" id="btnLogin"  data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
                                     Log In
                                 </button>
 
                                 <h5 style="color: white">Don't have an account?</h5>
 
 
-                                <button type="submit" href ="SignUp.html" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
+                                <a href="SignUp.html">
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
                                     Sign up
                                 </button>
-                                <!-- Checkbox -->
-                                <!--                <div class="form-check d-flex justify-content-center mb-4">-->
-                                <!--                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked style="background-color: #485757; color: white"/>-->
-                                <!--                  <label class="form-check-label" for="form2Example33">-->
-                                <!--                    Subscribe to our newsletter-->
-                                <!--                  </label>-->
-                                <!--                </div>-->
-
-
-
-
+                                </a>
 
                                 <!-- Register buttons -->
                             </form>
@@ -117,6 +107,9 @@
 </style>
 
 <!-- Section: Design Block -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+<script src="../assest/boostrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>
+<script src="../js/LoginController.js"></script>
 </body>
 </html>
