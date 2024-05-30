@@ -4,9 +4,14 @@ $(document).ready(function () {
 
     function generateCustomerID() {
         $("#cusId").val("C00-001");
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
         $.ajax({
             url: "http://localhost:8080/customer/cusIdGenerate",
             method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: "application/json",
             dataType: "json",
             success: function (resp) {
@@ -64,9 +69,15 @@ $(document).ready(function () {
 
         }
 
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
+
         $.ajax({
             url: 'http://localhost:8080/customer/save',
             type: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: 'application/json',
             data: JSON.stringify(customer),
             success: function (response) {
@@ -122,10 +133,15 @@ $(document).ready(function () {
 
         }
 
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
             url: 'http://localhost:8080/customer/update',
             type: 'PATCH',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: 'application/json',
             data: JSON.stringify(customer),
             success: function (response) {
@@ -144,6 +160,9 @@ $(document).ready(function () {
 ////delete///////
     $('#btnDeleteCustomer').click(function () {
         let code = $('#cusId').val();
+
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
             url: 'http://localhost:8080/customer/' + code,
@@ -166,9 +185,15 @@ $(document).ready(function () {
     function getAll() {
         $('#customerTable tbody').empty();
 
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
+
         $.ajax({
             url: "http://localhost:8080/customer/getAllCustomers",
             method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             success: function (resp) {
                 for (const customer of resp) {
                     let row = `<tr>

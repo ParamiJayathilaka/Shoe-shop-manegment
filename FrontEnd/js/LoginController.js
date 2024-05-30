@@ -95,6 +95,7 @@ function performAuthenticatedRequest() {
 /////////
 
 function fetchUserDetails(email, token) {
+
     $.ajax({
         url: "http://localhost:8080/api/v1/auth/search/" + email,
         method: "GET",
