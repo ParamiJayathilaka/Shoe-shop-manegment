@@ -105,8 +105,12 @@ function fetchUserDetails(email, token) {
         success: function (res, textStatus, xhr) {
             localStorage.setItem('role', res.role);
             localStorage.setItem('cashier', email);
-
-            then((result) => {
+            Swal.fire({
+                icon: "success",
+                title: "User Added Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            }).then((result) => {
                 if (result.isConfirmed) {
                     if (res.role === "ADMIN") {
                         window.location.href = "AdminPanel.html";
@@ -116,13 +120,13 @@ function fetchUserDetails(email, token) {
                 }
             });
         },
-        error: function (ob, textStatus, error) {
-            Swal.fire({
-                icon: "error",
-                title: "Error fetching user details",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        }
-    });
+            error: function (ob, textStatus, error) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error fetching user details",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        });
 }
