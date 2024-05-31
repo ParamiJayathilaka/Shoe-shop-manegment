@@ -77,7 +77,8 @@ $(document).ready(function () {
             emergency : emergency,
             emergencyContact :emergencyContact
         }
-
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
         $.ajax({
             url: 'http://localhost:8080/employee/save',
             type: 'POST',

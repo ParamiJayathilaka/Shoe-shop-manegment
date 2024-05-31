@@ -106,20 +106,14 @@ function fetchUserDetails(email, token) {
         success: function (res, textStatus, xhr) {
             localStorage.setItem('role', res.role);
             localStorage.setItem('cashier', email);
-            Swal.fire({
-                icon: "success",
-                title: "User Added Successfully",
-                showConfirmButton: false,
-                timer: 1500
-            }).then((result) => {
-                if (result.isConfirmed) {
+
+
                     if (res.role === "ADMIN") {
                         window.location.href = "AdminPanel.html";
                     } else if(res.role === "USER"){
                         window.location.href = "UserDashBoard.html";
                     }
-                }
-            });
+
         },
             error: function (ob, textStatus, error) {
                 Swal.fire({
