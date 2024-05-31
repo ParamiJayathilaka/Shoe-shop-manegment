@@ -1,35 +1,33 @@
-
-
 $(document).ready(function () {
-    generateCustomerID();
+    // generateCustomerID();
     getAll();
 
-    function generateCustomerID() {
-        $("#cusId").val("C00-001");
-        performAuthenticatedRequest();
-        const accessToken = localStorage.getItem('accessToken');
-        $.ajax({
-            url: "http://localhost:8080/customer/cusIdGenerate",
-            method: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            },
-            contentType: "application/json",
-            dataType: "json",
-            success: function (resp) {
-                let id = resp.value;
-                console.log("id: " + id);
-                if (id) {
-                    let tempId = parseInt(id.split("-")[1]) + 1;
-                    let newId = "C00-" + tempId.toString().padStart(3, '0');
-                    $("#cusId").val(newId);
-                }
-            },
-            error: function (ob, statusText, error) {
-                console.error("Error generating customer ID:", statusText, error);
-            }
-        });
-    }
+    // function generateCustomerID() {
+    //     $("#cusId").val("C00-001");
+    //     performAuthenticatedRequest();
+    //     const accessToken = localStorage.getItem('accessToken');
+    //     $.ajax({
+    //         url: "http://localhost:8080/customer/cusIdGenerate",
+    //         method: "GET",
+    //         headers: {
+    //             'Authorization': 'Bearer ' + accessToken
+    //         },
+    //         contentType: "application/json",
+    //         dataType: "json",
+    //         success: function (resp) {
+    //             let id = resp.value;
+    //             console.log("id: " + id);
+    //             if (id) {
+    //                 let tempId = parseInt(id.split("-")[1]) + 1;
+    //                 let newId = "C00-" + tempId.toString().padStart(3, '0');
+    //                 $("#cusId").val(newId);
+    //             }
+    //         },
+    //         error: function (ob, statusText, error) {
+    //             console.error("Error generating customer ID:", statusText, error);
+    //         }
+    //     });
+    // }
 
     ////////////save/////
 
@@ -289,128 +287,7 @@ $(document).ready(function () {
 });
 
 
-//////////// validation ////////////
 
-const Cust_ID_Check = /^(C00-)[0-9]{3}$/;
-const Cust_Name_Check = /^[A-Za-z ]{5,}$/;
-const Cust_Address1_Check = /^[A-Za-z0-9 ]{5,}$/;
-const Cust_Address2_Check = /^[A-Za-z0-9 ]{5,}$/;
-const Cust_Address3_Check = /^[A-Za-z0-9 ]{5,}$/;
-const Cust_Address4_Check = /^[A-Za-z0-9 ]{5,}$/;
-const Cust_Address5_Check = /^[A-Za-z0-9 ]{5,}$/;
-const Cust_Address6_Check = /^[A-Za-z0-9 ]{5,}$/;
-const Cust_Contact_Check = /^(07(0|1|2|4|5|6|7|8)[0-9]{7})$/;
-
-let custArray = new Array();
-custArray.push({field: $("#cusId"), regEx: Cust_ID_Check});
-custArray.push({field: $("#txtCusName"), regEx: Cust_Name_Check});
-custArray.push({field: $("#txtAddress1"), regEx: Cust_Address1_Check});
-custArray.push({field: $("#txtAddress2"), regEx: Cust_Address2_Check});
-custArray.push({field: $("#txtAddress3"), regEx: Cust_Address3_Check});
-custArray.push({field: $("#txtAddress4"), regEx: Cust_Address4_Check});
-custArray.push({field: $("#txtAddress5"), regEx: Cust_Address5_Check});
-custArray.push({field: $("#txtAddress6"), regEx: Cust_Address6_Check});
-custArray.push({field: $("#txtContact"), regEx: Cust_Contact_Check});
-
-
-
-function clearCustomerInputFields() {
-    $("#cusId,#txtCusName,#txtAddress1,#txtAddress2,#txtAddress3,#txtAddress4,#txtAddress5,#txtAddress6,#txtContact").val("");
-    $("#cusId,#txtCusName,#txtAddress1,#txtAddress2,#txtAddress3,#txtAddress4,#txtAddress5,#txtAddress6,#txtContact").css("border", "1px solid #ced4da");
-    $("#cusId").focus();
-    setBtn();
-}
-//
-
-
-function setBtn() {
-    $("#btnDeleteCustomer").prop("disabled", true);
-    $("#btnUpdateCustomer").prop("disabled", true);
-
-    if (checkAll()) {
-        $("#btnSaveCustomer").prop("disabled", false);
-    } else {
-        $("#btnSaveCustomer").prop("disabled", true);
-    }
-
-    let id = $("#cusId").val();
-    if (searchCustomer(id) == undefined) {
-        $("#btnDeleteCustomer").prop("disabled", true);
-        $("#btnUpdateCustomer").prop("disabled", true);
-    } else {
-        $("#btnDeleteCustomer").prop("disabled", false);
-        $("#btnUpdateCustomer").prop("disabled", false);
-    }
-
-}
-
-
-$(document).ready(function () {
-    $("#cusId,#txtCusName,#txtAddress1,#txtAddress2,#txtAddress3,#txtAddress4,#txtAddress5,#txtAddress6,#txtContact").on("keydown keyup", function (e) {
-
-        let indexNo = custArray.indexOf(custArray.find((c) => c.field.attr("id") == e.target.id));
-
-        if (e.key == "Tab") {
-            e.preventDefault();
-        }
-
-        checkValidations(custArray[indexNo]);
-
-        setBtn();
-
-        if (e.key == "Enter") {
-
-            if (e.target.id != custArray[custArray.length - 1].field.attr("id")) {
-                if (checkValidations(custArray[indexNo])) {
-                    custArray[indexNo + 1].field.focus();
-                }
-            } else {
-                if (checkValidations(custArray[indexNo])) {
-                    saveCustomer();
-                }
-            }
-        }
-    });
-});
-
-
-
-
-
-
-function checkValidations(object) {
-    if (object.regEx.test(object.field.val())) {
-        setBorder(true, object)
-        return true;
-    }
-    setBorder(false, object)
-    return false;
-}
-
-function setBorder(bol, ob) {
-    if (!bol) {
-        if (ob.field.val().length >= 1) {
-            ob.field.css("border", "2px solid red");
-        } else {
-            ob.field.css("border", "2px solid white");
-        }
-    } else {
-        if (ob.field.val().length >= 1) {
-            ob.field.css("border", "2px solid green");
-        } else {
-            ob.field.css("border", "2px solid white");
-        }
-    }
-
-}
-
-
-function checkAllCus() {
-    for (let i = 0; i < custArray.length; i++) {
-        if (!checkValidations(custArray[i])) return false;
-    }
-    return true;
-}
 
 /////////////////////////////////////
 
@@ -424,6 +301,7 @@ const regExCusAddress2 = /^[A-z0-9/ ]{4,30}$/;
 const regExCusAddress3 = /^[A-z0-9/ ]{4,30}$/;
 const regExCusAddress4 = /^[A-z0-9/ ]{4,30}$/;
 const regExCusAddress5 = /^[A-z0-9/ ]{4,30}$/;
+const regExCusAddress6 = /^[A-z0-9/ ]{4,30}$/;
 const regExCusEmailCusAddress = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const regExCusContactNum = /^(07(0|1|2|4|5|6|7|8)[0-9]{7})$/;
 
@@ -432,104 +310,114 @@ customerValidations.push({
     reg: regExCusID, field: $('#cusId'), error: 'Customer ID Pattern is Wrong : C00-001'
 });
 customerValidations.push({
-    reg: regExCusName, field: $('#customer_name'), error: 'Customer Name Pattern is Wrong : A-z 3-20'
+    reg: regExCusName, field: $('#txtCusName'), error: 'Customer Name Pattern is Wrong : A-z 3-20'
 });
 customerValidations.push({
-    reg: regExCusPoint, field: $('#total_point'), error: 'Customer Point is Wrong : Enter Number'
+    reg: regExCusPoint, field: $('#txtloyaltyPoints'), error: 'Customer Point is Wrong : Enter Number'
 });
 customerValidations.push({
-    reg: regExCusAddress1, field: $('#c_address_01'), error: 'Customer Address is Wrong : Enter address'
+    reg: regExCusAddress1, field: $('#txtAddress1'), error: 'Customer Address is Wrong : Enter address'
 });
 customerValidations.push({
-    reg: regExCusAddress2, field: $('#c_address_02'), error: 'Customer Address is Wrong : Enter address'
+    reg: regExCusAddress2, field: $('#txtAddress2'), error: 'Customer Address is Wrong : Enter address'
 });
 customerValidations.push({
-    reg: regExCusAddress3, field: $('#c_address_03'), error: 'Customer Address is Wrong : Enter address'
+    reg: regExCusAddress3, field: $('#txtAddress3'), error: 'Customer Address is Wrong : Enter address'
 });
 customerValidations.push({
-    reg: regExCusAddress4, field: $('#c_address_04'), error: 'Customer Address is Wrong : Enter address'
+    reg: regExCusAddress4, field: $('#txtAddress4'), error: 'Customer Address is Wrong : Enter address'
 });
 customerValidations.push({
-    reg: regExCusAddress5, field: $('#c_address_05'), error: 'Customer Address is Wrong : Enter address'
-});
-customerValidations.push({
-    reg: regExCusContactNum, field: $('#c_contact_num'), error: 'Customer email is Wrong : Enter email address'
-});
-customerValidations.push({
-    reg: regExCusEmailCusAddress, field: $('#customer_email'), error: 'Customer email is Wrong : Enter email address'
+    reg: regExCusAddress5, field: $('#txtAddress5'), error: 'Customer Address is Wrong : Enter address'
 });
 
-$("#cusId,#customer_name,#total_point,#c_address_01,#c_address_02,#c_address_03,#c_address_04,#c_address_05,#c_contact_num,#customer_email").on('keydown', function (event) {
+customerValidations.push({
+    reg: regExCusAddress6, field: $('#txtAddress6'), error: 'Customer Address is Wrong : Enter address'
+});
+customerValidations.push({
+    reg: regExCusContactNum, field: $('#txtContact'), error: 'Customer email is Wrong : Enter email address'
+});
+customerValidations.push({
+    reg: regExCusEmailCusAddress, field: $('#txtEmail'), error: 'Customer email is Wrong : Enter email address'
+});
+
+$("#cusId,#txtCusName,#txtloyaltyPoints,#txtAddress1,#txtAddress2,#txtAddress3,#txtAddress4,#txtAddress5,#txtAddress6,#txtContact,#txtEmail").on('keydown', function (event) {
     if (event.key === "Tab") {
         event.preventDefault();
     }
 });
 
-$("#cusId,#customer_name,#total_point,#c_address_01,#c_address_02,#c_address_03,#c_address_04,#c_address_05,#c_contact_num,#customer_email").on('keyup', function (event) {
+$("#cusId,#txtCusName,#txtloyaltyPoints,#txtAddress1,#txtAddress2,#txtAddress3,#txtAddress4,#txtAddress5,#txtAddress6,#txtContact,#txtEmail").on('keyup', function (event) {
     checkValidity(customerValidations);
 });
 
-$("#cusId,#customer_name,#total_point,#c_address_01,#c_address_02,#c_address_03,#c_address_04,#c_address_05,#c_contact_num,#customer_email").on('blur', function (event) {
+$("#cusId,#txtCusName,#txtloyaltyPoints,#txtAddress1,#txtAddress2,#txtAddress3,#txtAddress4,#txtAddress5,#txtAddress6,#txtContact,#txtEmail").on('blur', function (event) {
     checkValidity(customerValidations);
 });
 
 $("#cusId").on('keydown', function (event) {
     if (event.key === "Enter" && check(regExCusID, $("#cusId"))) {
-        $("#customer_name").focus();
+        $("#txtCusName").focus();
     } else {
         focusText($("#cusId"));
     }
 });
 
-$("#customer_name").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusName, $("#customer_name"))) {
-        focusText($("#customer_gender"));
+$("#txtCusName").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusName, $("#txtCusName"))) {
+        focusText($("#txtGender"));
     }
 });
 
-$("#total_point").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusPoint, $("#total_point"))) {
-        focusText($("#customer_dob"));
+$("#txtloyaltyPoints").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusPoint, $("#txtloyaltyPoints"))) {
+        focusText($("#txtDob"));
     }
 });
 
-$("#c_address_01").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusAddress1, $("#c_address_01"))) {
-        focusText($("#c_address_02"));
+$("#txtAddress1").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress1, $("#txtAddress1"))) {
+        focusText($("#txtAddress2"));
     }
 });
 
-$("#c_address_02").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusAddress2, $("#c_address_02"))) {
-        focusText($("#c_address_03"));
+$("#txtAddress2").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress2, $("#txtAddress2"))) {
+        focusText($("#txtAddress3"));
     }
 });
 
-$("#c_address_03").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusAddress3, $("#c_address_03"))) {
-        focusText($("#c_address_04"));
+$("#txtAddress3").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress3, $("#txtAddress3"))) {
+        focusText($("#txtAddress4"));
     }
 });
 
-$("#c_address_04").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusAddress2, $("#c_address_04"))) {
-        focusText($("#c_address_05"));
+$("#txtAddress4").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress2, $("#txtAddress4"))) {
+        focusText($("#txtAddress5"));
     }
 });
 
-$("#c_contact_num").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusContactNum, $("#c_contact_num"))) {
-        focusText($("#customer_email"));
-    }
-});
-$("#customer_email").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#customer_email"))) {
-        focusText($("#purchaseDate"));
+$("#txtAddress5").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress2, $("#txtAddress5"))) {
+        focusText($("#txtAddress6"));
     }
 });
 
-$("#customer_email").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#customer_email"))) {
+$("#txtContact").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusContactNum, $("#txtContact"))) {
+        focusText($("#txtEmail"));
+    }
+});
+$("#txtEmail").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmail"))) {
+        focusText($("#txtCusPurchaseDate"));
+    }
+});
+
+$("#txtEmail").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmail"))) {
         if (event.which === 13) {
             $('#btnSaveCustomer').focus();
         }
