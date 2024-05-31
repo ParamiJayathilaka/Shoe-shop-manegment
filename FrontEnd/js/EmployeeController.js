@@ -4,9 +4,13 @@ $(document).ready(function () {
 
     function generateEmployeeID() {
         $("#txtEmpCode").val("E00-001");
+        const accessToken = localStorage.getItem('accessToken');
         $.ajax({
             url: "http://localhost:8080/employee/employeeIdGenerate",
             method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: "application/json",
             dataType: "json",
             success: function (resp) {
@@ -28,11 +32,11 @@ $(document).ready(function () {
 
     $('#btnSaveEmployee').click(function (){
 
-        // var image = $("#img");
-        // var imageUrl = image.attr('src');
-        // if (!imageUrl || imageUrl === '../assest/image/background.jpg') {
-        //     // Handle error scenario
-        // }
+        var image = $("#img");
+        var imageUrl = image.attr('src');
+        if (!imageUrl || imageUrl === '../assest/image/background.jpg') {
+            // Handle error scenario
+        }
 
         let empCode = $('#txtEmpCode').val();
         let employeeName = $('#txtEmpName').val();
@@ -77,11 +81,14 @@ $(document).ready(function () {
             emergency : emergency,
             emergencyContact :emergencyContact
         }
-        performAuthenticatedRequest();
+        // performAuthenticatedRequest();
         const accessToken = localStorage.getItem('accessToken');
         $.ajax({
             url: 'http://localhost:8080/employee/save',
             type: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: 'application/json',
             data: JSON.stringify(employee),
             success: function (response) {
@@ -146,6 +153,9 @@ $(document).ready(function () {
         $.ajax({
             url: 'http://localhost:8080/employee/update',
             type: 'PATCH',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: 'application/json',
             data: JSON.stringify(employee),
             success: function (response) {
@@ -165,10 +175,13 @@ $(document).ready(function () {
 
     $('#btnDeleteEmployee').click(function () {
         let empCode = $('#txtEmpCode').val();
-
+        const accessToken = localStorage.getItem('accessToken');
         $.ajax({
             url: 'http://localhost:8080/employee/' + empCode,
             type: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             success: function (response) {
                 alert('employee information deleted successfully!');
                 console.log('Deleted employee with code:', empCode);
@@ -186,10 +199,13 @@ $(document).ready(function () {
 
     function getAll() {
         $('#employeeTable tbody').empty();
-
+        const accessToken = localStorage.getItem('accessToken');
         $.ajax({
             url: "http://localhost:8080/employee/getAllEmployee",
             method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             success: function (resp) {
                 for (const employee of resp) {
                     let row = `<tr>
@@ -303,21 +319,21 @@ $(document).ready(function () {
 
 /// employee pic add //
 
-// $('#txtEmpProfilePic').change(function() {
-//     var fileInput = $('#txtEmpProfilePic')[0];
-//     var file = fileInput.files[0];
-//
-//     if (file && (file.type.includes('image') || file.type === 'image/gif')) {
-//         var reader = new FileReader();
-//         reader.onload = function (e) {
-//             $('#img').attr('src', e.target.result);
-//         };
-//         reader.readAsDataURL(file);
-//         $(this).val("");
-//     } else {
-//         // Handle error scenario
-//     }
-// });
+$('#txtEmpProfilePic').change(function() {
+    var fileInput = $('#txtEmpProfilePic')[0];
+    var file = fileInput.files[0];
+
+    if (file && (file.type.includes('image') || file.type === 'image/gif')) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#img').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(file);
+        $(this).val("");
+    } else {
+        // Handle error scenario
+    }
+});
 
 
 

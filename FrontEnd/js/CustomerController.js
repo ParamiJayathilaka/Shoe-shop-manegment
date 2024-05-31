@@ -1,33 +1,83 @@
 $(document).ready(function () {
-    // generateCustomerID();
+    generateCustomerID();
     getAll();
 
-    // function generateCustomerID() {
-    //     $("#cusId").val("C00-001");
-    //     performAuthenticatedRequest();
-    //     const accessToken = localStorage.getItem('accessToken');
-    //     $.ajax({
-    //         url: "http://localhost:8080/customer/cusIdGenerate",
-    //         method: "GET",
-    //         headers: {
-    //             'Authorization': 'Bearer ' + accessToken
-    //         },
-    //         contentType: "application/json",
-    //         dataType: "json",
-    //         success: function (resp) {
-    //             let id = resp.value;
-    //             console.log("id: " + id);
-    //             if (id) {
-    //                 let tempId = parseInt(id.split("-")[1]) + 1;
-    //                 let newId = "C00-" + tempId.toString().padStart(3, '0');
-    //                 $("#cusId").val(newId);
-    //             }
-    //         },
-    //         error: function (ob, statusText, error) {
-    //             console.error("Error generating customer ID:", statusText, error);
-    //         }
-    //     });
-    // }
+
+
+    $("#searchBtn").click(function (){
+        searchCustomer();
+    })
+
+    function searchCustomer(){
+        $('#customerTable tbody').empty();
+        const accessToken = localStorage.getItem('accessToken');
+        $.ajax({
+            url: "http://localhost:8080/customer/search/"+$("#searchCusId").val(),
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (resp) {
+                console.log(resp)
+
+                for (const customer of resp) {
+                    let row = `<tr>
+                                   <td>${customer.code}</td>
+                                <td>${customer.name}</td>
+                                <td>${customer.email}</td>
+                                <td>${customer.gender}</td>
+                                <td>${customer.contact}</td>
+                                <td>${customer.dob}</td>
+                                <td>${customer.addressLine1}</td>
+                                <td>${customer.addressLine2}</td>
+                                <td>${customer.addressLine3}</td>
+                                <td>${customer.addressLine4}</td>
+                                <td>${customer.addressLine5}</td>
+                                <td>${customer.addressLine6}</td>
+                                <td>${customer.loyaltyDate}</td>
+                                <td>${customer.loyaltyLevel}</td>
+                                <td>${customer.loyaltyPoints}</td>
+                                <td>${customer.recentPurchaseDate}</td>
+                                </tr>`;
+                    $('#customerTable tbody').append(row);
+                }
+                bindClickEvents();
+            },
+            error: function (ob, statusText, error) {
+                console.error("Error generating customer ID:", statusText, error);
+            }
+        });
+    }
+
+
+    function generateCustomerID() {
+        $("#cusId").val("C00-001");
+        // performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
+        $.ajax({
+            url: "http://localhost:8080/customer/cusIdGenerate",
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (resp) {
+                let id = resp.value;
+                console.log("id: " + id);
+                if (id) {
+                    let tempId = parseInt(id.split("-")[1]) + 1;
+                    let newId = "C00-" + tempId.toString().padStart(3, '0');
+                    $("#cusId").val(newId);
+                }
+            },
+            error: function (ob, statusText, error) {
+                console.error("Error generating customer ID:", statusText, error);
+            }
+        });
+    }
 
     ////////////save/////
 
@@ -69,7 +119,7 @@ $(document).ready(function () {
 
         }
 
-        performAuthenticatedRequest();
+        // performAuthenticatedRequest();
         const accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
@@ -133,7 +183,7 @@ $(document).ready(function () {
 
         }
 
-        performAuthenticatedRequest();
+        // performAuthenticatedRequest();
         const accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
@@ -147,8 +197,9 @@ $(document).ready(function () {
             success: function (response) {
                 alert('Customer information update successfully!');
                 console.log(customer);
-                clearFields();
                 getAll();
+                clearFields();
+
             },
             error: function (xhr, status, error) {
                 console.error('Error updating customer information:', error);
@@ -161,7 +212,7 @@ $(document).ready(function () {
     $('#btnDeleteCustomer').click(function () {
         let code = $('#cusId').val();
 
-        performAuthenticatedRequest();
+        // performAuthenticatedRequest();
         const accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
@@ -188,7 +239,7 @@ $(document).ready(function () {
     function getAll() {
         $('#customerTable tbody').empty();
 
-        performAuthenticatedRequest();
+        // performAuthenticatedRequest();
         const accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
@@ -435,12 +486,6 @@ function setButtonState(value) {
         $("#btnDeleteCustomer").attr('disabled',false);
     }
 }
-
-
-
-
-
-
 
 
 

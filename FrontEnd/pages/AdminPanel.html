@@ -33,6 +33,7 @@
 
 </head>
 <body>
+
 <div class="d-flex">
   <div class="sidebar p-3">
     <h2 class="text-primary">CREATIVE TIM</h2>
@@ -199,9 +200,13 @@
   </div>
 </div>
 
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+
   var ctx1 = document.getElementById('dailySales').getContext('2d');
   var dailySalesChart = new Chart(ctx1, {
     type: 'line',
@@ -228,7 +233,7 @@
   });
 
   var ctx2 = document.getElementById('emailSubscriptions').getContext('2d');
-  var emailSubscriptionsChart = new Chart(ctx2, {
+  new Chart(ctx2, {
     type: 'bar',
     data: {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -277,6 +282,8 @@
     }
   });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>
 <script src="../assest/boostrap/js/bootstrap.bundle.min.js"></script>
 <script src="../js/LoginController.js"></script>
