@@ -48,17 +48,18 @@ public class CustomerController {
 
     }
 
-    @GetMapping("/search")
-    public List<CustomerDTO> search(@RequestParam("code") String code){
-        return customerService.searchCustomer(code);
+    @GetMapping("/search/{name}")
+    public List<CustomerDTO> search(@PathVariable(value = "name")String name){
+        System.out.println("dd"+name);
+        return customerService.searchCustomer(name);
     }
 
 
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @GetMapping(path = "/cusIdGenerate")
-//    public @ResponseBody
-//    CustomDTO customerIdGenerate() {
-//        return customerService.customerIdGenerate();
-//    }
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/cusIdGenerate")
+    public @ResponseBody
+    CustomDTO customerIdGenerate() {
+        return customerService.customerIdGenerate();
+    }
 
 }
