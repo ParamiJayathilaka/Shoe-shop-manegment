@@ -78,8 +78,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         return null;
     }
 
-//    @Override
-//    public CustomDTO employeeIdGenerate() {
-//        return new CustomDTO(employeeRepo.getLastIndex());
-//    }
+    @Override
+    public CustomDTO employeeIdGenerate() {
+        return new CustomDTO(employeeRepo.getLastIndex());
+    }
 }

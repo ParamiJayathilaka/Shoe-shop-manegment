@@ -55,12 +55,12 @@ public class InventoryController {
     }
 
 
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @GetMapping(path = "/inventoryIdGenerate")
-//    public @ResponseBody
-//    CustomDTO inventoryIdGenerate() {
-//        return inventoryService.inventoryIdGenerate();
-//    }
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/inventoryIdGenerate")
+    public @ResponseBody
+    CustomDTO inventoryIdGenerate() {
+        return inventoryService.inventoryIdGenerate();
+    }
 
 
 }

@@ -15,6 +15,6 @@ public interface InventoryService {
     List<InventoryDTO> getAllInventory();
     List<InventoryDTO> searchInventory(String name);
 
-//    @ResponseBody
-//    CustomDTO inventoryIdGenerate();
+    @ResponseBody
+    CustomDTO inventoryIdGenerate();
 }

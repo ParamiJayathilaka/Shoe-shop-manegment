@@ -11,8 +11,8 @@ import java.util.List;
 
 public interface InventoryRepo extends JpaRepository<Inventory,String> {
 
-//    @Query(value = "SELECT item_code FROM inventory ORDER BY item_code DESC LIMIT 1", nativeQuery = true)
-//    String getLastIndex();
+    @Query(value = "SELECT item_code FROM inventory ORDER BY item_code DESC LIMIT 1", nativeQuery = true)
+    String getLastIndex();
 
     @Query("SELECT i.itemCode FROM Inventory i")
     List<String> findAllItemCodes();
