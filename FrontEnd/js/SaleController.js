@@ -1,7 +1,12 @@
 function loadCustomers() {
+    const accessToken = localStorage.getItem('accessToken');
+
     $.ajax({
         url: 'http://localhost:8080/customer/getAllCustomers',
         type: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         success: function(response) {
             const customers = response;
             const customerSelect = $('#CustomerId');
@@ -21,9 +26,14 @@ function setCustomerName() {
     const id = document.getElementById('CustomerId').value;
     const customerNameInput = document.getElementById('customerName');
     customerNameInput.value = "Customer not found";
+    const accessToken = localStorage.getItem('accessToken');
+
     $.ajax({
         url: `http://localhost:8080/customer/searchName/${id}`,
         type: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         success: function(response) {
             const customer = response;
             console.log(customer);
@@ -42,9 +52,15 @@ function setCustomerName() {
 }
 
 function loadItem() {
+
+    const accessToken = localStorage.getItem('accessToken');
+
     $.ajax({
         url: 'http://localhost:8080/item/getAllItem',
         type: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         success: function(response) {
             const items = response;
             const customerSelect = $('#ItemId');
@@ -69,9 +85,14 @@ function setItemName() {
     itemNameInput.value = "Item not found";
     itemPriceInput.value = "Unit price not found";
 
+    const accessToken = localStorage.getItem('accessToken');
+
     $.ajax({
         url: `http://localhost:8080/item/searchName/${id}`,
         type: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         success: function(response) {
             const item = response;
             console.log(item);
@@ -196,9 +217,14 @@ $(document).ready(function() {
 
         console.log(orderData);
 
+        const accessToken = localStorage.getItem('accessToken');
+
         $.ajax({
             url: ' http://localhost:8080/order/save',
             type: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: 'application/json',
             data: JSON.stringify(orderData),
             success: function(response) {

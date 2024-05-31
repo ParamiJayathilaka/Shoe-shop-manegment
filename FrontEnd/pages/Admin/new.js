@@ -1,44 +1,108 @@
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
+
+$("#txtItemCode").focus();
+const regExItemID = /^(I00-)[0-9]{3,4}$/;
+const regExItemName = /^[A-z ]{3,20}$/;
+// const regExItemUnitPriceSale =  /^[0-9]{1,}$/;
+// const regExItemUnitPriceBuy =/^[0-9]{2,}([.][0-9]{2})?$/;
+// const regExItemExpectProfit = /^[0-9]{2,}([.][0-9]{2})?$/;
+// const regExItemProfitMargin = /^[0-9]{2,}([.][0-9]{2})?$/;
+const regExItemStatus =/^[A-z ]{3,20}$/;
+
+let itemValidations = [];
+itemValidations.push({
+    reg: regExItemID, field: $('#txtItemCode'), error: 'employee ID Pattern is Wrong : E00-001'
+});
+itemValidations.push({
+    reg: regExItemName, field: $('#txtItemDesc'), error: 'employee Name Pattern is Wrong : A-z 3-20'
+});
+// itemValidations.push({
+//     reg: regExItemUnitPriceSale, field: $('#txtItemUnitPriceSale'), error: 'employee Point is Wrong : Enter Number'
+// });
+// itemValidations.push({
+//     reg: regExItemUnitPriceBuy, field: $('#txtItemUnitPriceBuy'), error: 'employee Address is Wrong : Enter address'
+// });
+// itemValidations.push({
+//     reg: regExItemExpectProfit, field: $('#txtItemExpectedProfit'), error: 'employee Address is Wrong : Enter address'
+// });
+// itemValidations.push({
+//     reg: regExItemProfitMargin, field: $('#txtItemProfitMargin'), error: 'employee Address is Wrong : Enter address'
+// });
+itemValidations.push({
+    reg: regExItemStatus, field: $('#txtItemStatus'), error: 'employee Address is Wrong : Enter address'
 });
 
-var ctx1 = document.getElementById('visitAndSalesChart').getContext('2d');
-var visitAndSalesChart = new Chart(ctx1, {
-    type: 'bar',
-    data: {
-        labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG'],
-        datasets: [
-            {
-                label: 'CHN',
-                data: [12, 19, 3, 5, 2, 3, 12, 15],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            },
-            {
-                label: 'USA',
-                data: [10, 15, 7, 8, 5, 6, 9, 10],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            },
-            {
-                label: 'UK',
-                data: [5, 6, 3, 4, 1, 2, 7, 8],
-                backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                borderColor: 'rgba(255, 206, 86, 1)',
-                borderWidth: 1
-            }
-        ]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
+//#txtItemCode,#txtItemDesc,#txtItemUnitPriceSale,#txtItemUnitPriceBuy,#txtItemExpectedProfit,#txtItemProfitMargin,#txtItemStatus
+
+$("#txtItemCode,#txtItemDesc,#txtItemStatus").on('keydown', function (event) {
+    if (event.key === "Tab") {
+        event.preventDefault();
+    }
+});
+
+$("#txtItemCode,#txtItemDesc,#txtItemStatus").on('keyup', function (event) {
+    checkValidity(itemValidations);
+});
+
+$("#txtItemCode,#txtItemDesc,#txtItemStatus").on('blur', function (event) {
+    checkValidity(itemValidations);
+});
+
+$("#txtItemCode").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemID, $("#txtItemCode"))) {
+        $("#txtItemDesc").focus();
+    } else {
+        focusText($("#txtItemCode"));
+    }
+});
+
+$("#txtItemDesc").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemName, $("#txtItemDesc"))) {
+        focusText($("#txtItemUnitPriceSale"));
+    }
+});
+//
+// $("#txtItemUnitPriceSale").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemUnitPriceSale, $("#txtItemUnitPriceSale"))) {
+//         focusText($("#txtItemUnitPriceBuy"));
+//     }
+// });
+//
+// $("#txtItemUnitPriceBuy").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemUnitPriceBuy, $("#txtItemUnitPriceBuy"))) {
+//         focusText($("#txtItemExpectedProfit"));
+//     }
+// });
+//
+// $("#txtItemExpectedProfit").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemExpectProfit, $("#txtItemExpectedProfit"))) {
+//         focusText($("#txtItemProfitMargin"));
+//     }
+// });
+//
+// $("#txtItemProfitMargin").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemProfitMargin, $("#txtItemProfitMargin"))) {
+//         focusText($("#txtItemStatus"));
+//     }
+// });
+
+
+$("#txtItemStatus").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemStatus, $("#txtItemStatus"))) {
+        if (event.which === 13) {
+            $('#btnSaveItem').focus();
         }
     }
 });
 
-var ctx2
+function setButtonState(value) {
+    if (value > 0) {
+        $("#btnSaveItem").attr('disabled', true);
+        $("#btnUpdateItem").attr('disabled', true);
+        $("#btnDeleteItem").attr('disabled', true);
+    } else {
+        $("#btnSaveItem").attr('disabled', false);
+        $("#btnUpdateItem").attr('disabled', false);
+        $("#btnDeleteItem").attr('disabled',false);
+    }
+}
+

@@ -4,9 +4,16 @@ $(document).ready(function () {
 
     function generateInventoryID() {
         $("#txtItemCode").val("I00-001");
+
+        const accessToken = localStorage.getItem('accessToken');
+
         $.ajax({
             url: "http://localhost:8080/inventory/inventoryIdGenerate",
             method: "GET",
+
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: "application/json",
             dataType: "json",
             success: function (resp) {
@@ -43,11 +50,14 @@ $(document).ready(function () {
 
         var inventory = {
             itemCode:itemCode,
-            itemDesc:itemDesc,
+            itemDescription:itemDesc,
             itemPicture:itemPicture,
             category:category,
-            size:size,
-            supplierCode:supplierCode,
+            size6:4,
+            size8:4,
+            size10:4,
+            size11:4,
+            supCode:supplierCode,
             supplierName:supplierName,
             unitPriceSale:unitPriceSale,
             unitPriceBuy:unitPriceBuy,
@@ -57,9 +67,14 @@ $(document).ready(function () {
 
         }
 
+
+
         $.ajax({
             url: 'http://localhost:8080/inventory/save',
             type: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+            },
             contentType: 'application/json',
             data: JSON.stringify(inventory),
             success: function (response) {
@@ -98,7 +113,7 @@ $(document).ready(function () {
             itemPicture:itemPicture,
             category:category,
             size:size,
-            supplierCode:supplierCode,
+            supCode:supplierCode,
             supplierName:supplierName,
             unitPriceSale:unitPriceSale,
             unitPriceBuy:unitPriceBuy,
@@ -107,10 +122,13 @@ $(document).ready(function () {
             Status:Status
 
         }
-
+        var accessToken = localStorage.getItem('accessToken');
         $.ajax({
             url: 'http://localhost:8080/inventory/update',
             type: 'PATCH',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: 'application/json',
             data: JSON.stringify(inventory),
             success: function (response) {
@@ -130,9 +148,14 @@ $(document).ready(function () {
     $('#btnDeleteItem').click(function () {
         let itemCode = $('#txtItemCode').val();
 
+        var accessToken = localStorage.getItem('accessToken');
+
         $.ajax({
             url: 'http://localhost:8080/inventory/' + itemCode,
             type: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             success: function (response) {
                 alert('inventory information deleted successfully!');
                 console.log('Deleted inventory with code:', itemCode);
@@ -148,10 +171,14 @@ $(document).ready(function () {
 
     function getAll() {
         $('#itemTable tbody').empty();
+        var accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
             url: "http://localhost:8080/inventory/getAllInventory",
             method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             success: function (resp) {
                 for (const item of resp) {
                     let row = `<tr>
@@ -227,9 +254,233 @@ $(document).ready(function () {
 });
 
 
+///////validation ////
+
+
+$("#txtItemCode").focus();
+const regExItemID = /^(I00-)[0-9]{3,4}$/;
+const regExItemName = /^[A-z ]{3,20}$/;
+// const regExItemUnitPriceSale =  /^[0-9]{1,}$/;
+// const regExItemUnitPriceBuy =/^[0-9]{2,}([.][0-9]{2})?$/;
+// const regExItemExpectProfit = /^[0-9]{2,}([.][0-9]{2})?$/;
+// const regExItemProfitMargin = /^[0-9]{2,}([.][0-9]{2})?$/;
+const regExItemStatus =/^[A-z ]{3,20}$/;
+
+let itemValidations = [];
+itemValidations.push({
+    reg: regExItemID, field: $('#txtItemCode'), error: 'employee ID Pattern is Wrong : E00-001'
+});
+itemValidations.push({
+    reg: regExItemName, field: $('#txtItemDesc'), error: 'employee Name Pattern is Wrong : A-z 3-20'
+});
+// itemValidations.push({
+//     reg: regExItemUnitPriceSale, field: $('#txtItemUnitPriceSale'), error: 'employee Point is Wrong : Enter Number'
+// });
+// itemValidations.push({
+//     reg: regExItemUnitPriceBuy, field: $('#txtItemUnitPriceBuy'), error: 'employee Address is Wrong : Enter address'
+// });
+// itemValidations.push({
+//     reg: regExItemExpectProfit, field: $('#txtItemExpectedProfit'), error: 'employee Address is Wrong : Enter address'
+// });
+// itemValidations.push({
+//     reg: regExItemProfitMargin, field: $('#txtItemProfitMargin'), error: 'employee Address is Wrong : Enter address'
+// });
+itemValidations.push({
+    reg: regExItemStatus, field: $('#txtItemStatus'), error: 'employee Address is Wrong : Enter address'
+});
+
+//#txtItemCode,#txtItemDesc,#txtItemUnitPriceSale,#txtItemUnitPriceBuy,#txtItemExpectedProfit,#txtItemProfitMargin,#txtItemStatus
+
+$("#txtItemCode,#txtItemDesc,#txtItemStatus").on('keydown', function (event) {
+    if (event.key === "Tab") {
+        event.preventDefault();
+    }
+});
+
+$("#txtItemCode,#txtItemDesc,#txtItemStatus").on('keyup', function (event) {
+    checkValidity(itemValidations);
+});
+
+$("#txtItemCode,#txtItemDesc,#txtItemStatus").on('blur', function (event) {
+    checkValidity(itemValidations);
+});
+
+$("#txtItemCode").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemID, $("#txtItemCode"))) {
+        $("#txtItemDesc").focus();
+    } else {
+        focusText($("#txtItemCode"));
+    }
+});
+
+$("#txtItemDesc").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemName, $("#txtItemDesc"))) {
+        focusText($("#txtItemUnitPriceSale"));
+    }
+});
+//
+// $("#txtItemUnitPriceSale").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemUnitPriceSale, $("#txtItemUnitPriceSale"))) {
+//         focusText($("#txtItemUnitPriceBuy"));
+//     }
+// });
+//
+// $("#txtItemUnitPriceBuy").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemUnitPriceBuy, $("#txtItemUnitPriceBuy"))) {
+//         focusText($("#txtItemExpectedProfit"));
+//     }
+// });
+//
+// $("#txtItemExpectedProfit").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemExpectProfit, $("#txtItemExpectedProfit"))) {
+//         focusText($("#txtItemProfitMargin"));
+//     }
+// });
+//
+// $("#txtItemProfitMargin").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemProfitMargin, $("#txtItemProfitMargin"))) {
+//         focusText($("#txtItemStatus"));
+//     }
+// });
+
+
+$("#txtItemStatus").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemStatus, $("#txtItemStatus"))) {
+        if (event.which === 13) {
+            $('#btnSaveItem').focus();
+        }
+    }
+});
+
+function setButtonState(value) {
+    if (value > 0) {
+        $("#btnSaveItem").attr('disabled', true);
+        $("#btnUpdateItem").attr('disabled', true);
+        $("#btnDeleteItem").attr('disabled', true);
+    } else {
+        $("#btnSaveItem").attr('disabled', false);
+        $("#btnUpdateItem").attr('disabled', false);
+        $("#btnDeleteItem").attr('disabled',false);
+    }
+}
 
 
 
-
-
-
+//
+// $("#txtItemCode").focus();
+// const regExItemID = /^(I00-)[0-9]{3,4}$/;
+// const regExItemName = /^[A-z ]{3,20}$/;
+// const regExItemUnitPriceSale = /^[A-z ]{3,20}$/;
+// const regExItemUnitPriceBuy = /^[A-z ]{3,20}$/;
+// const regExItemExpectProfit = /^[A-z ]{3,20}$/;
+// const regExItemProfitMargin = /^[A-z0-9/ ]{4,30}$/;
+// const regExItemStatus =/^[A-z ]{3,20}$/;
+//
+// let itemValidations = [];
+// itemValidations.push({
+//     reg: regExItemID, field: $('#txtItemCode'), error: 'employee ID Pattern is Wrong : E00-001'
+// });
+// itemValidations.push({
+//     reg: regExItemName, field: $('#txtItemDesc'), error: 'employee Name Pattern is Wrong : A-z 3-20'
+// });
+// itemValidations.push({
+//     reg: regExItemUnitPriceSale, field: $('#txtItemUnitPriceSale'), error: 'employee Point is Wrong : Enter Number'
+// });
+// itemValidations.push({
+//     reg: regExItemUnitPriceBuy, field: $('#txtItemUnitPriceBuy'), error: 'employee Address is Wrong : Enter address'
+// });
+// itemValidations.push({
+//     reg: regExItemExpectProfit, field: $('#txtItemExpectedProfit'), error: 'employee Address is Wrong : Enter address'
+// });
+// itemValidations.push({
+//     reg: regExItemProfitMargin, field: $('#txtItemProfitMargin'), error: 'employee Address is Wrong : Enter address'
+// });
+// itemValidations.push({
+//     reg: regExItemStatus, field: $('#txtItemStatus'), error: 'employee Address is Wrong : Enter address'
+// });
+//
+//
+//
+// $("#txtItemCode,#txtItemDesc,#txtItemUnitPriceSale,#txtItemUnitPriceBuy,#txtItemExpectedProfit,#txtItemProfitMargin,#txtItemStatus").on('keydown', function (event) {
+//     if (event.key === "Tab") {
+//         event.preventDefault();
+//     }
+// });
+//
+// $("#txtItemCode,#txtItemDesc,#txtItemUnitPriceSale,#txtItemUnitPriceBuy,#txtItemExpectedProfit,#txtItemProfitMargin,#txtItemStatus").on('keyup', function (event) {
+//     checkValidity(itemValidations);
+// });
+//
+// $("#txtItemCode,#txtItemDesc,#txtItemUnitPriceSale,#txtItemUnitPriceBuy,#txtItemExpectedProfit,#txtItemProfitMargin,#txtItemStatus").on('blur', function (event) {
+//     checkValidity(itemValidations);
+// });
+//
+// $("#txtItemCode").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemID, $("#txtItemCode"))) {
+//         $("#txtItemDesc").focus();
+//     } else {
+//         focusText($("#txtItemCode"));
+//     }
+// });
+//
+// $("#txtItemDesc").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemName, $("#txtItemDesc"))) {
+//         focusText($("#txtItemUnitPriceSale"));
+//     }
+// });
+//
+// $("#txtItemUnitPriceSale").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemUnitPriceSale, $("#txtItemUnitPriceSale"))) {
+//         focusText($("#txtItemUnitPriceBuy"));
+//     }
+// });
+//
+// $("#txtItemUnitPriceBuy").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemUnitPriceBuy, $("#txtItemUnitPriceBuy"))) {
+//         focusText($("#txtItemExpectedProfit"));
+//     }
+// });
+//
+// $("#txtItemExpectedProfit").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemExpectProfit, $("#txtItemExpectedProfit"))) {
+//         focusText($("#txtItemProfitMargin"));
+//     }
+// });
+//
+// $("#txtItemProfitMargin").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemProfitMargin, $("#txtItemProfitMargin"))) {
+//         focusText($("#txtItemStatus"));
+//     }
+// });
+//
+//
+// $("#txtItemStatus").on('keydown', function (event) {
+//     if (event.key === "Enter" && check(regExItemStatus, $("#txtItemStatus"))) {
+//         if (event.which === 13) {
+//             $('#btnSaveItem').focus();
+//         }
+//     }
+// });
+//
+// function setButtonState(value) {
+//     if (value > 0) {
+//         $("#btnSaveItem").attr('disabled', true);
+//         $("#btnUpdateItem").attr('disabled', true);
+//         $("#btnDeleteItem").attr('disabled', true);
+//     } else {
+//         $("#btnSaveItem").attr('disabled', false);
+//         $("#btnUpdateItem").attr('disabled', false);
+//         $("#btnDeleteItem").attr('disabled',false);
+//     }
+// }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

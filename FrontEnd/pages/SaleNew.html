@@ -1,9 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Order Form</title>
-
+    <meta charset="UTF-8">
+    <title>Title</title>
     <link rel="stylesheet" href="../assest/boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assest/boostrap/css/styles.css">
+    <!--    <link rel="stylesheet" href="../assest/sweetalert2-11.6.16/sweetalert2.css">-->
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg posNavi position-relative rounded-bottom" style="background-color: #000000">
+        <div class="container-fluid" >
+
+            <img src="../assest/image/shoename.png" height="67" width="151"/>
+
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler" data-bs-target="#navbarSupportedContent"
+                    data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" id="homeBtn" >
+                        <a aria-current="page" class="nav-link active" href="AdminPanel.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Home</ul></a>
+                    </li>
+                    <li class="nav-item" id="customerBtn">
+                        <a class="nav-link" href="Customer.html" style="color: #fffefe; font-size: 20px; font-style: oblique"><ul>Customer</ul></a>
+                    </li>
+                    <li class="nav-item" id="itemBtn">
+                        <a class="nav-link" href="Inventory.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Items</ul></a>
+                    </li>
+                    <li class="nav-item" id="employeeBtn">
+                        <a class="nav-link" href="Employee.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Employee</ul></a>
+                    </li>
+                    <li class="nav-item" id="supplierBtn">
+                        <a class="nav-link" href="Supplier.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Supplier</ul></a>
+                    </li>
+                    <li class="nav-item" id="saleBtn">
+                        <a class="nav-link" href="SaleNew.html" style="color: #ffffff; font-size: 20px; font-style: oblique"><ul>Sale</ul></a>
+                    </li>
+
+
+                </ul>
+                <div class="d-grid  d-md-flex  ">
+                    <a href="SignUp.html">
+                        <button class="btn btn-outline-primary btn-m" type="button" style="color: #ece9e9"><i class="fa-solid fa-user-plus"></i>
+                            Sign Up
+                        </button>
+                    </a>
+
+                    <a href="LoginPage.html">
+                        <button class="btn btn-outline-secondary" type="button" style="color: #ece9e9"><i
+                                class="fa-solid fa-right-from-bracket"></i> Log Out
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <style>
         body {
@@ -109,12 +161,19 @@
         }
     </style>
 
-
-
 </head>
-<body style="background-color: #454545">
-<h1>Order Form</h1>
-<form >
+<body>
+<main class="container-fluid" id="CustomerSection" style="background-color: #454545">
+    <!-- Customer Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2  id="H1-3" style="color: #00c1ff; font-style: italic; font-size: 40px; "  ><i class="bi bi-people" ></i> <b> Sale</b>
+            </h2>
+        </div>
+    </div>
+    </div>
+
+
     <div id="one" style="background-color: #262626">
         <label for="orderId" style="color: #ffffff">Order ID:</label>
         <input type="text" id="orderId" name="orderId" style="background-color: #334344; color: white"><br>
@@ -132,19 +191,18 @@
             <option value="Cash">Cash</option>
         </select><br>
 
-        <label for="CustomerId" style="color: #ffffff">Customer ID:</label>
-        <select id="CustomerId" name="CustomerId" oninput="setCustomerName()" style="background-color: #334344; color: white"></select><br>
+        <label for="cusId" style="color: #ffffff">Customer ID:</label>
+        <select id="cusId" name="cusId" oninput="setCustomerName()" style="background-color: #334344; color: white"></select><br>
 
-        <label for="CustomerName" style="color: #ffffff">Customer Name:</label>
-        <input disabled type="text" id="customerName" name="customerName" style="background-color: #334344; color: white"><br>
+        <label for="txtCusName" style="color: #ffffff">Customer Name:</label>
+        <input disabled type="text" id="txtCusName" name="txtCusName" style="background-color: #334344; color: white"><br>
     </div>
-
     <div id="two" style="background-color: #262626">
-        <label for="ItemId" style="color: #ffffff">Item ID:</label>
-        <select id="ItemId" name="ItemId" oninput="setItemName()" style="background-color: #334344; color: white"></select><br>
+        <label for="txtItemCode" style="color: #ffffff">Item ID:</label>
+        <select id="txtItemCode" name="txtItemCode" oninput="setItemName()" style="background-color: #334344; color: white"></select><br>
 
-        <label for="itemName" style="color: #ffffff">Item Name:</label>
-        <input disabled type="text" id="itemName" name="itemName" style="background-color: #334344; color: white">
+        <label for="txtItemDesc" style="color: #ffffff">Item Name:</label>
+        <input disabled type="text" id="txtItemDesc" name="txtItemDesc" style="background-color: #334344; color: white">
 
         <label for="Size" style="color: #ffffff">Size:</label>
         <select id="Size" name="Size" style="background-color: #334344; color: white">
@@ -164,8 +222,8 @@
     <div id="three" style="background-color: #262626">
         <label for="cashierName" style="color: #ffffff">Cashier Name:</label>
         <select id="cashierName" name="cashierName" style="background-color: #334344; color: white">
-            <option>Maduranga</option>
-            <option>Viduranga</option>
+            <option>Parami</option>
+            <option>Jayathilaka</option>
         </select><br>
 
         <label for="totalAmount" style="color: #ffffff">Total Amount:</label>
@@ -196,10 +254,14 @@
     </table>
 
     <button type="submit">Submit</button>
-</form>
 
-<script src="../assest/boostrap/js/bootstrap.bundle.min.js"></script>
+
+</main>
+
 <script src="../assest/boostrap/js/jquery-3.7.1.min.js"></script>
-<script src="../js/SaleController.js"></script>
+<script src="../assest/boostrap/js/bootstrap.bundle.js"></script>
+<script src="../assest/boostrap/js/app.js"></script>
+<script src="../js/CustomerController.js"></script>
+
 </body>
 </html>

@@ -32,11 +32,11 @@ $(document).ready(function () {
 
     $('#btnSaveEmployee').click(function (){
 
-        var image = $("#img");
-        var imageUrl = image.attr('src');
-        if (!imageUrl || imageUrl === '../assest/image/background.jpg') {
-            // Handle error scenario
-        }
+        // var image = $("#img");
+        // var imageUrl = image.attr('src');
+        // if (!imageUrl || imageUrl === '../assest/image/background.jpg') {
+        //     // Handle error scenario
+        // }
 
         let empCode = $('#txtEmpCode').val();
         let employeeName = $('#txtEmpName').val();
@@ -319,215 +319,246 @@ $(document).ready(function () {
 
 /// employee pic add //
 
-$('#txtEmpProfilePic').change(function() {
-    var fileInput = $('#txtEmpProfilePic')[0];
-    var file = fileInput.files[0];
-
-    if (file && (file.type.includes('image') || file.type === 'image/gif')) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#img').attr('src', e.target.result);
-        };
-        reader.readAsDataURL(file);
-        $(this).val("");
-    } else {
-        // Handle error scenario
-    }
-});
-
-
-
-
-
-
-
-//////////////////////////////
-// generateEmployeeID();
-//
-// function generateEmployeeID() {
-//     $("#txtEmpCode").val("E00-001");
-//     $.ajax({
-//         url: "http://localhost:8080/employee/employeeIdGenerate",
-//         method: "GET",
-//         contentType: "application/json",
-//         dataType: "json",
-//         success: function (resp) {
-//             let id = resp.value;
-//             console.log("id: " + id);
-//             if (id) {
-//                 let tempId = parseInt(id.split("-")[1]) + 1;
-//                 let newId = "E00-" + tempId.toString().padStart(3, '0');
-//                 $("#txtEmpCode").val(newId);
-//             }
-//         },
-//         error: function (ob, statusText, error) {
-//             console.error("Error generating employee ID:", statusText, error);
-//         }
-//     });
-// }
-//
-//
-//
-// $('#btnSaveEmployee').click(function () {
-//     var formData = new FormData();
-//     var image = $("#txtEmpProfilePic")[0].files[0];
-//
-//     if (!image) {
-//         alert('Please upload a profile picture');
-//         return;
-//     }
-//
-//     let empCode = $('#txtEmpCode').val();
-//     let employeeName = $('#txtEmpName').val();
-//     let gender = $('#txtEmpGender').val();
-//     let status = $('#txtEmpStatus').val();
-//     let designation = $('#txtEmpDesignation').val();
-//     let accessRole = $('#txtEmpAccessRole').val();
-//     let dob = $('#txtEmpDob').val();
-//     let dateOfJoin = $('#txtEmpDateOfJoin').val();
-//     let branch = $('#txtEmpAttachedBranch').val();
-//     let addressLine1 = $('#txtEmpBuildingNo').val();
-//     let addressLine2 = $('#txtEmpLane').val();
-//     let addressLine3 = $('#txtEmpCity').val();
-//     let addressLine4 = $('#txtEmpState').val();
-//     let addressLine5 = $('#txtEmpPostalCode').val();
-//     let contactNum = $('#txtEmpContact').val();
-//     let email = $('#txtEmpEmail').val();
-//     let emergency = $('#txtEmpEmergencyGuardian').val();
-//     let emergencyContact = $('#txtEmpEmergencyContact').val();
-//
-//     formData.append('employeeProfilePic', image);
-//     formData.append('empCode', empCode);
-//     formData.append('employeeName', employeeName);
-//     formData.append('gender', gender);
-//     formData.append('status', status);
-//     formData.append('designation', designation);
-//     formData.append('accessRole', accessRole);
-//     formData.append('dob', dob);
-//     formData.append('dateOfJoin', dateOfJoin);
-//     formData.append('branch', branch);
-//     formData.append('addressLine1', addressLine1);
-//     formData.append('addressLine2', addressLine2);
-//     formData.append('addressLine3', addressLine3);
-//     formData.append('addressLine4', addressLine4);
-//     formData.append('addressLine5', addressLine5);
-//     formData.append('contactNum', contactNum);
-//     formData.append('email', email);
-//     formData.append('emergency', emergency);
-//     formData.append('emergencyContact', emergencyContact);
-//
-//     $.ajax({
-//         url: 'http://localhost:8080/employee/save',
-//         type: 'POST',
-//         contentType: false,
-//         processData: false,
-//         data: formData,
-//         success: function (response) {
-//             alert('Employee information saved successfully!');
-//             console.log(response);
-//             getAll();
-//         },
-//         error: function (xhr, status, error) {
-//             console.error('Error saving employee information:', error);
-//             alert('Employee Not Found!');
-//         }
-//     });
-// });
-//
-//
-//
-// $('#btnUpdateEmployee').click(function () {
-//     var formData = new FormData();
-//     var image = $("#txtEmpProfilePic")[0].files[0];
-//
-//     let empCode = $('#txtEmpCode').val();
-//     let employeeName = $('#txtEmpName').val();
-//     let gender = $('#txtEmpGender').val();
-//     let status = $('#txtEmpStatus').val();
-//     let designation = $('#txtEmpDesignation').val();
-//     let accessRole = $('#txtEmpAccessRole').val();
-//     let dob = $('#txtEmpDob').val();
-//     let dateOfJoin = $('#txtEmpDateOfJoin').val();
-//     let branch = $('#txtEmpAttachedBranch').val();
-//     let addressLine1 = $('#txtEmpBuildingNo').val();
-//     let addressLine2 = $('#txtEmpLane').val();
-//     let addressLine3 = $('#txtEmpCity').val();
-//     let addressLine4 = $('#txtEmpState').val();
-//     let addressLine5 = $('#txtEmpPostalCode').val();
-//     let contactNum = $('#txtEmpContact').val();
-//     let email = $('#txtEmpEmail').val();
-//     let emergency = $('#txtEmpEmergencyGuardian').val();
-//     let emergencyContact = $('#txtEmpEmergencyContact').val();
-//
-//     if (image) {
-//         formData.append('employeeProfilePic', image);
-//     }
-//     formData.append('empCode', empCode);
-//     formData.append('employeeName', employeeName);
-//     formData.append('gender', gender);
-//     formData.append('status', status);
-//     formData.append('designation', designation);
-//     formData.append('accessRole', accessRole);
-//     formData.append('dob', dob);
-//     formData.append('dateOfJoin', dateOfJoin);
-//     formData.append('branch', branch);
-//     formData.append('addressLine1', addressLine1);
-//     formData.append('addressLine2', addressLine2);
-//     formData.append('addressLine3', addressLine3);
-//     formData.append('addressLine4', addressLine4);
-//     formData.append('addressLine5', addressLine5);
-//     formData.append('contactNum', contactNum);
-//     formData.append('email', email);
-//     formData.append('emergency', emergency);
-//     formData.append('emergencyContact', emergencyContact);
-//
-//     $.ajax({
-//         url: 'http://localhost:8080/employee/update',
-//         type: 'PATCH',
-//         contentType: false,
-//         processData: false,
-//         data: formData,
-//         success: function (response) {
-//             alert('Employee information updated successfully!');
-//             console.log(response);
-//             getAll();
-//         },
-//         error: function (xhr, status, error) {
-//             console.error('Error updating employee information:', error);
-//             alert('Employee Not Found!');
-//         }
-//     });
-// });
-//
-// $('#btnDeleteEmployee').click(function () {
-//     let empCode = $('#txtEmpCode').val();
-//
-//     $.ajax({
-//         url: 'http://localhost:8080/employee/' + empCode,
-//         type: 'DELETE',
-//         success: function (response) {
-//             alert('Employee information deleted successfully!');
-//             console.log('Deleted employee with code:', empCode);
-//             getAll();
-//         },
-//         error: function (xhr, status, error) {
-//             console.error('Error deleting employee information:', error);
-//             alert('Employee Not Found!');
-//         }
-//     });
-// });
-//
 // $('#txtEmpProfilePic').change(function() {
 //     var fileInput = $('#txtEmpProfilePic')[0];
 //     var file = fileInput.files[0];
 //
-//     if (file && (file.type.includes('image'))) {
+//     if (file && (file.type.includes('image') || file.type === 'image/gif')) {
 //         var reader = new FileReader();
 //         reader.onload = function (e) {
 //             $('#img').attr('src', e.target.result);
 //         };
 //         reader.readAsDataURL(file);
+//         $(this).val("");
 //     } else {
-//         alert('Please select a valid image file.');
+//         // Handle error scenario
 //     }
 // });
+
+//////////////////////////////
+
+$("#txtEmpCode").focus();
+const regExEmpID = /^(E00-)[0-9]{3,4}$/;
+const regExEmpName = /^[A-z ]{3,20}$/;
+const regExEmpStatus = /^[A-z ]{3,20}$/;
+const regExEmpDesignation = /^[A-z ]{3,20}$/;
+const regExEmpBranch = /^[A-z ]{3,20}$/;
+const regExEmpAddress1 = /^[A-z0-9/ ]{4,30}$/;
+const regExEmpAddress2 = /^[A-z0-9/ ]{4,30}$/;
+const regExEmpAddress3 = /^[A-z0-9/ ]{4,30}$/;
+const regExEmpAddress4 = /^[A-z0-9/ ]{4,30}$/;
+const regExEmpAddress5 = /^[A-z0-9/ ]{4,30}$/;
+const regExEmpContactNum = /^(07(0|1|2|4|5|6|7|8)[0-9]{7})$/;
+const regExEmpEmailAddress = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const regExEmpEmergency = /^[A-z ]{3,20}$/;
+const regExEmpEmerContactNum = /^(07(0|1|2|4|5|6|7|8)[0-9]{7})$/;
+
+let employeeValidations = [];
+employeeValidations.push({
+    reg: regExEmpID, field: $('#txtEmpCode'), error: 'employee ID Pattern is Wrong : E00-001'
+});
+employeeValidations.push({
+    reg: regExEmpName, field: $('#txtEmpName'), error: 'employee Name Pattern is Wrong : A-z 3-20'
+});
+employeeValidations.push({
+    reg: regExEmpStatus, field: $('#txtEmpStatus'), error: 'employee Point is Wrong : Enter Number'
+});
+employeeValidations.push({
+    reg: regExEmpDesignation, field: $('#txtEmpDesignation'), error: 'employee Address is Wrong : Enter address'
+});
+employeeValidations.push({
+    reg: regExEmpBranch, field: $('#txtEmpAttachedBranch'), error: 'employee Address is Wrong : Enter address'
+});
+employeeValidations.push({
+    reg: regExEmpAddress1, field: $('#txtEmpBuildingNo'), error: 'employee Address is Wrong : Enter address'
+});
+employeeValidations.push({
+    reg: regExEmpAddress2, field: $('#txtEmpLane'), error: 'employee Address is Wrong : Enter address'
+});
+employeeValidations.push({
+    reg: regExEmpAddress3, field: $('#txtEmpCity'), error: 'employee Address is Wrong : Enter address'
+});
+
+employeeValidations.push({
+    reg: regExEmpAddress4, field: $('#txtEmpState'), error: 'employee Address is Wrong : Enter address'
+});
+employeeValidations.push({
+    reg: regExEmpAddress5, field: $('#txtEmpPostalCode'), error: 'employee email is Wrong : Enter email address'
+});
+employeeValidations.push({
+    reg: regExEmpContactNum, field: $('#txtEmpContact'), error: 'employee email is Wrong : Enter email address'
+});
+
+employeeValidations.push({
+    reg: regExEmpEmailAddress, field: $('#txtEmpEmail'), error: 'employee email is Wrong : Enter email address'
+});
+
+employeeValidations.push({
+    reg: regExEmpEmergency, field: $('#txtEmpEmergencyGuardian'), error: 'employee email is Wrong : Enter email address'
+});
+
+employeeValidations.push({
+    reg: regExEmpEmerContactNum, field: $('#txtEmpEmergencyContact'), error: 'Customer email is Wrong : Enter email address'
+});
+
+
+
+$("#txtEmpCode,#txtEmpName,#txtEmpStatus,#txtEmpDesignation,#txtEmpAttachedBranch,#txtEmpBuildingNo,#txtEmpLane,#txtEmpCity,#txtEmpState,#txtEmpPostalCode,#txtEmpContact,#txtEmpEmail,#txtEmpEmergencyGuardian,#txtEmpEmergencyContact").on('keydown', function (event) {
+    if (event.key === "Tab") {
+        event.preventDefault();
+    }
+});
+
+$("#txtEmpCode,#txtEmpName,#txtEmpStatus,#txtEmpDesignation,#txtEmpAttachedBranch,#txtEmpBuildingNo,#txtEmpLane,#txtEmpCity,#txtEmpState,#txtEmpPostalCode,#txtEmpContact,#txtEmpEmail,#txtEmpEmergencyGuardian,#txtEmpEmergencyContact").on('keyup', function (event) {
+    checkValidity(employeeValidations);
+});
+
+$("#txtEmpCode,#txtEmpName,#txtEmpStatus,#txtEmpDesignation,#txtEmpAttachedBranch,#txtEmpBuildingNo,#txtEmpLane,#txtEmpCity,#txtEmpState,#txtEmpPostalCode,#txtEmpContact,#txtEmpEmail,#txtEmpEmergencyGuardian,#txtEmpEmergencyContact").on('blur', function (event) {
+    checkValidity(employeeValidations);
+});
+
+$("#txtEmpCode").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExEmpID, $("#txtEmpCode"))) {
+        $("#txtEmpName").focus();
+    } else {
+        focusText($("#txtEmpCode"));
+    }
+});
+
+$("#txtEmpName").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExEmpName, $("#txtEmpName"))) {
+        focusText($("#txtEmpProfilePic"));
+    }
+});
+
+$("#txtEmpProfilePic").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusPoint, $("#txtEmpProfilePic"))) {
+        focusText($("#txtEmpGender"));
+    }
+});
+
+$("#txtEmpGender").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress1, $("#txtEmpGender"))) {
+        focusText($("#txtEmpStatus"));
+    }
+});
+
+$("#txtEmpStatus").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExEmpStatus, $("#txtEmpStatus"))) {
+        focusText($("#txtEmpDesignation"));
+    }
+});
+
+$("#txtEmpDesignation").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress3, $("#txtEmpDesignation"))) {
+        focusText($("#txtEmpAccessRole"));
+    }
+});
+
+$("#txtEmpAccessRole").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress2, $("#txtEmpAccessRole"))) {
+        focusText($("#txtEmpDob"));
+    }
+});
+
+$("#txtEmpDob").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress2, $("#txtEmpDob"))) {
+        focusText($("#txtEmpDateOfJoin"));
+    }
+});
+
+$("#txtEmpDateOfJoin").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusContactNum, $("#txtEmpDateOfJoin"))) {
+        focusText($("#txtEmpAttachedBranch"));
+    }
+});
+$("#txtEmpAttachedBranch").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpAttachedBranch"))) {
+        focusText($("#txtEmpBuildingNo"));
+    }
+});
+
+$("#txtEmpBuildingNo").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpBuildingNo"))) {
+        if (event.which === 13) {
+            $('#txtEmpLane').focus();
+        }
+    }
+});
+
+$("#txtEmpLane").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpLane"))) {
+        if (event.which === 13) {
+            $('#txtEmpCity').focus();
+        }
+    }
+});
+
+$("#txtEmpCity").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpCity"))) {
+        if (event.which === 13) {
+            $('#txtEmpState').focus();
+        }
+    }
+});
+
+$("#txtEmpState").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpState"))) {
+        if (event.which === 13) {
+            $('#txtEmpPostalCode').focus();
+        }
+    }
+});
+
+$("#txtEmpPostalCode").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpPostalCode"))) {
+        if (event.which === 13) {
+            $('#txtEmpContact').focus();
+        }
+    }
+});
+
+$("#txtEmpContact").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpContact"))) {
+        if (event.which === 13) {
+            $('#txtEmpEmail').focus();
+        }
+    }
+});
+
+$("#txtEmpEmail").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpEmail"))) {
+        if (event.which === 13) {
+            $('#txtEmpEmergencyGuardian').focus();
+        }
+    }
+});
+
+$("#txtEmpEmergencyGuardian").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpEmergencyGuardian"))) {
+        if (event.which === 13) {
+            $('#txtEmpEmergencyContact').focus();
+        }
+    }
+});
+
+$("#txtEmpEmergencyContact").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#txtEmpEmergencyContact"))) {
+        if (event.which === 13) {
+            $('#btnSaveEmployee').focus();
+        }
+    }
+});
+
+function setButtonState(value) {
+    if (value > 0) {
+        $("#btnSaveEmployee").attr('disabled', true);
+        $("#btnUpdateEmployee").attr('disabled', true);
+        $("#btnDeleteEmployee").attr('disabled', true);
+    } else {
+        $("#btnSaveEmployee").attr('disabled', false);
+        $("#btnUpdateEmployee").attr('disabled', false);
+        $("#btnDeleteEmployee").attr('disabled',false);
+    }
+}
+

@@ -29,9 +29,15 @@ $(document).ready(function () {
 
     function generateSupplierID() {
         $("#txtSupplierCode").val("S00-001");
+
+        const accessToken = localStorage.getItem('accessToken');
+
         $.ajax({
             url: "http://localhost:8080/supplier/supplierIdGenerate",
             method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: "application/json",
             dataType: "json",
             success: function (resp) {
@@ -82,9 +88,15 @@ $(document).ready(function () {
 
         }
 
+        const accessToken = localStorage.getItem('accessToken');
+
+
         $.ajax({
             url: 'http://localhost:8080/supplier/save',
             type: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: 'application/json',
             data: JSON.stringify(supplier),
             success: function (response) {
@@ -132,10 +144,14 @@ $(document).ready(function () {
 
         }
 
+        const accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
             url: 'http://localhost:8080/supplier/update',
             type: 'PATCH',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             contentType: 'application/json',
             data: JSON.stringify(supplier),
             success: function (response) {
@@ -154,10 +170,14 @@ $(document).ready(function () {
 ////delete///////
     $('#btnDeleteSupplier').click(function () {
         let supCode = $('#txtSupplierCode').val();
+        const accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
             url: 'http://localhost:8080/supplier/' + supCode,
             type: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             success: function (response) {
                 alert('supplier information deleted successfully!');
                 console.log('Deleted supplier with code:', supCode);
@@ -176,10 +196,14 @@ $(document).ready(function () {
 
     function getAll() {
         $('#supplierTable tbody').empty();
+        const accessToken = localStorage.getItem('accessToken');
 
         $.ajax({
             url: "http://localhost:8080/supplier/getAllSupplier",
             method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             success: function (resp) {
                 for (const supplier of resp) {
                     let row = `<tr>
